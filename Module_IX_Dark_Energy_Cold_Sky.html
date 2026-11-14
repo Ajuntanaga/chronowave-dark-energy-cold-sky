@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark energy &amp; the cold sky — Module IX | Chronowave Dynamics</title>
+<meta name="description" content="Module IX of the Chronowave Dynamics Temporal Engine: The cosmos, driven from inside time.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070B14'/%3E%3Ctext x='32' y='44' font-family='serif' font-style='italic' font-size='34' fill='%23F5A83C' text-anchor='middle'%3Et%C2%B3%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<style>
+/* ============================================================
+   CHRONOWAVE DYNAMICS · TEMPORAL ENGINE
+   phosphor cyan → thermal amber duotone over a deep time-field
+   ============================================================ */
+:root{
+  --field:      #070B14;
+  --field-2:    #0B1120;
+  --field-3:    #101830;
+  --ivory:      #EDE8DC;
+  --ivory-dim:  rgba(237,232,220,.62);
+  --ivory-faint:rgba(237,232,220,.38);
+  --cyan:       #59D6C9;
+  --cyan-dim:   rgba(89,214,201,.35);
+  --amber:      #F5A83C;
+  --amber-dim:  rgba(245,168,60,.35);
+  --hairline:   rgba(237,232,220,.12);
+  --serif: "STIX Two Text", "Times New Roman", serif;
+  --grot:  "Space Grotesk", system-ui, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+  --max: 1140px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--field); color:var(--ivory);
+  font-family:var(--serif); font-size:17px; line-height:1.72;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+::selection{background:var(--amber);color:var(--field)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,4.5vw,56px)}
+.eyebrow{
+  font-family:var(--grot);font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--cyan);font-weight:500;display:flex;align-items:center;gap:14px;
+}
+.eyebrow::after{content:"";height:1px;flex:0 0 56px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.eyebrow .rn{color:var(--amber);letter-spacing:.14em}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,4vw,44px);line-height:1.16;letter-spacing:-.01em;margin:18px 0 8px}
+h2 em{font-style:italic;color:var(--amber)}
+h3{font-family:var(--serif);font-weight:600;font-size:20px;margin:0 0 6px}
+.lede{font-size:clamp(17px,1.6vw,20px);color:var(--ivory-dim);max-width:64ch}
+p{color:var(--ivory-dim);max-width:66ch;margin-bottom:1.1em}
+p strong{color:var(--ivory);font-weight:600}
+section{padding:clamp(68px,9vh,120px) 0;position:relative}
+section + section{border-top:1px solid var(--hairline)}
+
+/* equation panels */
+.eq-panel{background:linear-gradient(180deg,var(--field-2),rgba(13,21,36,.6));border:1px solid var(--hairline);border-left:none;border-radius:10px;padding:26px 26px 22px;margin:26px 0;overflow:visible;position:relative;counter-increment:eqn}
+.eq-panel::after{content:"eq " counter(eqn,decimal-leading-zero);position:absolute;right:14px;bottom:8px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:rgba(237,232,220,.28)}
+.eq-panel{box-shadow:inset 3px 0 0 0 var(--cyan)}
+.eq-panel[data-tag*="ASSUMED" i]{box-shadow:inset 3px 0 0 0 rgba(232,110,204,.85)}
+.eq-panel[data-tag*="ASSUMED" i]::before{color:rgba(232,110,204,.9)}
+.eq-panel[data-tag*="MEASURED" i],.eq-panel[data-tag*="FITTED" i]{box-shadow:inset 3px 0 0 0 var(--amber)}
+.eq-panel[data-tag*="MEASURED" i]::before,.eq-panel[data-tag*="FITTED" i]::before{color:var(--amber)}
+.eq-panel::before{content:attr(data-tag);position:absolute;top:-9px;left:20px;font-family:var(--grot);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);background:var(--field);padding:0 10px;max-width:86%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eq{color:var(--ivory);font-size:18px;text-align:center}
+.eq .katex{font-size:1.08em}
+.eq .katex-display{margin:.35em 0}
+.eq-scroll{overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(89,214,201,.35) transparent}
+.eq-scroll::-webkit-scrollbar{height:5px}
+.eq-scroll::-webkit-scrollbar-thumb{background:rgba(89,214,201,.28);border-radius:3px}
+.eq-scroll::-webkit-scrollbar-track{background:transparent}
+.katex-fallback{font-family:var(--mono);font-size:13px;color:var(--cyan);white-space:pre-wrap}
+body{counter-reset:eqn}
+
+/* instrument chrome */
+.readout{font-family:var(--mono);font-size:12.5px;color:var(--cyan);letter-spacing:.03em}
+.readout b{color:var(--amber);font-weight:500}
+.panel{background:var(--field-2);border:1px solid var(--hairline);border-radius:12px;overflow:hidden}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:13px 20px;border-bottom:1px solid var(--hairline);font-family:var(--grot);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ivory-faint);flex-wrap:wrap}
+canvas.viz{display:block;width:100%;height:auto;background:radial-gradient(120% 100% at 50% 0%, rgba(89,214,201,.05), transparent 60%), var(--field-2)}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:20px 30px;padding:18px 20px;border-top:1px solid var(--hairline)}
+/* The basis carries the 170px, not min-width: `.controls .ctrl{min-width:0}` further down (the phone
+   fix) cancels the minimum at every width, and with flex:1's zero basis a slider then never forces a
+   wrap. It shrank to 11px beside its neighbours instead (the Lorenz rho, sigma and beta sliders). */
+.ctrl{min-width:170px;flex:1 1 170px}
+.ctrl.narrow{min-width:130px;flex:0 1 180px}
+.ctrl label{display:flex;justify-content:space-between;gap:8px;font-family:var(--grot);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-faint);margin-bottom:8px}
+.ctrl label output{font-family:var(--mono);color:var(--amber);letter-spacing:0;text-transform:none;white-space:nowrap}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--cyan),var(--amber));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:15px;height:15px;border-radius:50%;background:var(--ivory);border:2px solid var(--field);box-shadow:0 0 0 1.5px var(--cyan),0 0 12px rgba(89,214,201,.5)}
+input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:var(--ivory);border:2px solid var(--field);box-shadow:0 0 0 1.5px var(--cyan)}
+input[type=range]:focus-visible{outline:2px solid var(--amber);outline-offset:6px}
+.btn{font-family:var(--grot);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--field);background:var(--cyan);border:none;border-radius:100px;padding:11px 22px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s}
+.btn:hover{background:var(--amber);box-shadow:0 0 24px rgba(245,168,60,.35)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--cyan);border:1px solid var(--cyan-dim)}
+.btn.ghost:hover{color:var(--amber);border-color:var(--amber);box-shadow:none}
+.btn.live{background:var(--amber)}
+.btn.mini{padding:7px 14px;font-size:10.5px}
+.seg{display:inline-flex;border:1px solid var(--hairline);border-radius:100px;overflow:hidden;flex-wrap:wrap}
+.seg button{font-family:var(--grot);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--ivory-faint);border:none;padding:9px 17px;cursor:pointer;transition:color .2s,background .2s}
+.seg button+button{border-left:1px solid var(--hairline)}
+.seg button[aria-pressed="true"]{background:var(--field-3);color:var(--amber)}
+.seg button:focus-visible{outline:2px solid var(--cyan);outline-offset:-3px}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ivory-dim);background:transparent;border:1px solid var(--hairline);border-radius:100px;padding:6px 13px;cursor:pointer;transition:all .18s}
+.chip:hover{border-color:var(--cyan);color:var(--cyan)}
+.chip[aria-pressed="true"]{border-color:var(--amber);color:var(--amber);background:rgba(245,168,60,.08)}
+.chip:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+/* stat tiles */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:var(--hairline);border-top:1px solid var(--hairline)}
+.stat{background:var(--field-2);padding:14px 18px}
+.stat .k{font-family:var(--grot);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory-faint)}
+.stat .v{font-family:var(--mono);font-size:14.5px;color:var(--cyan);margin-top:4px;word-break:break-all}
+.stat .v.warm{color:var(--amber)}
+
+/* nav */
+nav#tf-nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,11,20,.75);border-bottom:1px solid var(--hairline)}
+nav#tf-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:20px}
+.brand{font-family:var(--grot);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ivory);text-decoration:none;font-weight:600;white-space:nowrap}
+.brand span{color:var(--amber)}
+.navlinks{display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{font-family:var(--grot);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-faint);text-decoration:none;transition:color .2s;white-space:nowrap}
+.navlinks a:hover{color:var(--cyan)}
+.navlinks a .rn{color:var(--amber);margin-right:5px}
+@media(max-width:640px){.navlinks{display:none}}
+
+/* hero */
+header#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 0 80px}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+#hero .wrap{position:relative;z-index:2}
+#hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(7,11,20,.25) 0%,rgba(7,11,20,0) 40%,rgba(7,11,20,.85) 92%)}
+.hero-kicker{font-family:var(--grot);font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--cyan);margin-bottom:26px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(42px,8vw,104px);line-height:.98;letter-spacing:-.02em}
+h1 .t-sup{display:inline-block;color:var(--amber);font-style:italic}
+.hero-sub{margin-top:30px;font-size:clamp(17px,1.9vw,21px);color:var(--ivory-dim);max-width:58ch}
+.hero-sub i{color:var(--ivory)}
+.hero-meta{margin-top:40px;display:flex;gap:32px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ivory-faint);letter-spacing:.05em}
+.hero-meta div b{display:block;color:var(--cyan);font-weight:400;margin-bottom:3px}
+.hero-cta{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--grot);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-faint);animation:hint 2.6s ease-in-out infinite}
+@keyframes hint{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+@media(prefers-reduced-motion:reduce){.scroll-hint{animation:none}}
+
+/* dimensional ladder */
+.ladder-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start;margin-top:32px}
+@media(max-width:900px){.ladder-grid{grid-template-columns:1fr}}
+.dim-list{display:flex;flex-direction:column;gap:2px}
+#frameBar{position:relative;margin-top:-58px;display:flex;align-items:center;justify-content:center;gap:18px;padding:10px 14px;background:linear-gradient(rgba(7,11,20,0),rgba(7,11,20,.88) 40%)}
+#frameBar .chips{margin:0;justify-content:center}
+.readout{font-variant-numeric:tabular-nums}
+#hlStepVals{display:inline-block;min-width:30ch;white-space:nowrap}
+#hlRung{display:inline-block;min-width:38ch;white-space:nowrap;text-align:right}
+.stepGrp{display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 12px;border:1px solid var(--hairline);border-radius:999px;background:rgba(13,21,36,.8)}
+.stepGrp .readout{min-width:auto}
+#hlFineBand{display:none}
+#hlFineBand.on{display:flex;flex-wrap:wrap;align-items:flex-end}
+.hl-fine label{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.hl-fine output{min-width:82px;text-align:right;font-variant-numeric:tabular-nums}
+.hl-fine input[type=range]{width:100%}
+#ladderCanvas,#hlCanvas,#meshCanvas,#lorenzCanvas,#tvCanvas,#tfeCanvas{touch-action:none}
+@media (pointer:coarse){
+  .btn.mini{min-height:34px;min-width:34px;padding:6px 12px}
+  .stepGrp{padding:5px 12px}
+  input[type=number]{font-size:16px !important}
+  input[type=range]{min-height:30px}
+  select{min-height:32px;font-size:13px !important}
+}
+@media (max-width:720px){
+  .wrap{padding-left:14px;padding-right:14px}
+  .controls{gap:10px}
+  .ctrl.narrow{flex:1 1 100%}
+  #hlStepRow{gap:8px}
+  .readout{font-size:11px}
+  #meshAlg label{flex:1 1 100%}
+}
+
+/* ============ NARROW-VIEWPORT CONTAINMENT ============
+   Measured, not guessed: Chromium at 320 and 360 px reported
+   document.scrollWidth = 383, i.e. the whole page scrolled sideways, and the
+   deepest causes were a table row with min-content 369 px and a canvas with
+   min-content 367 px — both already sitting inside overflow-x:auto parents.
+   The reason the parents were not containing them is the default every grid
+   and flex item carries: min-width:auto, which resolves to MIN-CONTENT and
+   quietly overrides the scroll container. overflow-x:auto cannot shrink a box
+   whose minimum size is its content. So the fix is min-width:0 in the places
+   that scroll or are scrolled, and it belongs at every width, not behind a
+   media query — which is why this block sits outside one.
+   The canvas case is worse than a layout quirk: animate() writes
+   cv.width = cv.clientWidth every frame, so once the element has been wide,
+   its intrinsic width pins the minimum and it can never shrink back. That is a
+   one-way ratchet; max-width:100% breaks it. */
+.table-scroll, .eq-scroll{min-width:0}
+/* Any control row of buttons must be able to wrap. A non-wrapping flex row is
+   the general form of the fault measured in the lattice at 320 px, where three
+   buttons summed to 306 px in a 292 px box and pushed the whole document. */
+.controls .ctrl{min-width:0}
+.controls .ctrl > .seg, .controls .ctrl[style*="display:flex"]{flex-wrap:wrap}
+.seg{flex-wrap:wrap}
+canvas.viz{min-width:0;max-width:100%}
+.panel{min-width:0}
+.ref-grid > *, .split > *, .lattice-grid > *, .ladder-grid > *{min-width:0}
+.papers{grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))}
+/* long mono readouts must be allowed to break rather than push the page */
+.readout, .tier-note code{overflow-wrap:anywhere}
+
+@media (max-width:520px){
+  /* the canon and open-ruling card grids: a 252px track in a 292px content box
+     fits, but below that the track keeps its minimum and overflows. min() lets
+     the single column collapse to the container instead. */
+  #compendium [style*="minmax(252px"]{grid-template-columns:1fr !important}
+  .papers{grid-template-columns:1fr}
+  .paper{padding:18px 16px 16px}
+  .paper .glyph{font-size:30px;right:10px;top:6px}
+  .paper h3{font-size:16px;padding-right:32px}
+  .eq-panel{padding:22px 14px 18px}
+  .eq-panel::before{max-width:calc(100% - 28px)}
+  .eq{font-size:15px}
+  table.data th, table.data td{padding-right:10px}
+  .panel-head{padding:12px 14px;gap:10px}
+  .wrap{padding-left:12px;padding-right:12px}
+  /* Inline flex:0 0 auto on a control row beats the .ctrl.narrow rule above and
+     sizes the row to max-content — which is how three buttons summed to 306 px
+     inside a 292 px box. Below 520 px a control row takes the full width and
+     wraps inside itself instead. */
+  .controls .ctrl[style*="flex:0 0 auto"]{flex:1 1 100% !important}
+  .btn.mini{font-size:10px;padding:5px 9px}
+  /* the nav keeps only the brand at this width, so it must not reserve a row
+     for links that are display:none */
+  #tf-nav .wrap{gap:8px;flex-wrap:nowrap}
+  #tf-nav #palBtn{font-size:9px;padding:3px 6px;letter-spacing:0}
+  #tf-nav .brand{font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* Measured at 320-414 px: the canon cards' category labels render at 9.5 px
+     in uppercase with .16em tracking, which is past legible on a phone, and the
+     "→ XIII" module links are 38x12 px tap targets. Both are compendium-wide
+     patterns, so they are fixed by shape rather than one at a time. */
+  #compendium div[style*="font-size:9.5px"]{font-size:10.5px !important;letter-spacing:.12em !important}
+  #compendium a[href^="#"]{display:inline-block;padding:7px 8px;margin:-7px -2px;min-height:30px;line-height:16px}
+}
+/* Tap targets for the in-card module links at every width: an inline anchor of
+   38x12 px is a miss on any touch screen, not only a narrow one. */
+@media (pointer:coarse){
+  #compendium a[href^="#"], .tier-note a[href^="#"]{display:inline-block;padding:6px 8px;margin:-6px -2px;min-height:30px}
+}
+body.frame-tau .rn{color:var(--amber)}
+body.frame-beat .rn{color:#E7C46B}
+.chip.fr-tau[aria-pressed="true"]{border-color:var(--amber);color:var(--amber)}
+.chip.fr-beat[aria-pressed="true"]{border-color:#E7C46B;color:#E7C46B}
+.dim-item{text-align:left;background:transparent;border:none;border-left:2px solid var(--hairline);padding:17px 20px;cursor:pointer;transition:border-color .25s,background .25s}
+.dim-item .dt{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--ivory-dim);transition:color .25s}
+.dim-item .dn{font-family:var(--grot);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory-faint);margin-top:2px}
+.dim-item .dd{font-family:var(--serif);font-size:14.5px;color:var(--ivory-faint);margin-top:8px;line-height:1.55;max-width:40ch}
+.dim-item[aria-pressed="true"]{border-left-color:var(--amber);background:linear-gradient(90deg,rgba(245,168,60,.07),transparent)}
+.dim-item[aria-pressed="true"] .dt{color:var(--amber)}
+.dim-item[aria-pressed="true"] .dn{color:var(--cyan)}
+.dim-item:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+.split.top{align-items:start}
+
+/* tables */
+table.data{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px}
+table.data caption{caption-side:top;text-align:left;font-family:var(--grot);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory-faint);padding-bottom:12px}
+table.data th{font-weight:400;text-align:left;color:var(--cyan);letter-spacing:.05em;border-bottom:1px solid var(--hairline);padding:8px 12px 10px 0;white-space:nowrap}
+table.data td{color:var(--ivory-dim);padding:10px 12px 10px 0;border-bottom:1px solid rgba(237,232,220,.06);white-space:nowrap}
+table.data td.err{color:var(--amber)}
+table.data tr.final td{color:var(--ivory)}
+table.data tr.final td.err{color:var(--cyan);text-shadow:0 0 14px rgba(89,214,201,.5)}
+.table-scroll{overflow-x:auto}
+.ref-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:40px;align-items:start;margin-top:28px}
+@media(max-width:960px){.ref-grid{grid-template-columns:1fr}}
+
+/* master eq */
+.tier-note{font-family:var(--grot);font-size:11.5px;letter-spacing:.08em;color:var(--ivory-faint);margin-top:10px;line-height:1.6}
+/* .ctrl label and .panel-head are upper-cased, which also turns gamma into Gamma, omega into Omega
+   and "t" into "T". Symbols and live readouts keep their case. */
+.sym, .panel-head .readout{text-transform:none}
+.cpl{white-space:nowrap;margin-right:14px}
+.cpl input{width:5.2em;background:#0d1524;color:var(--amber);border:1px solid var(--hairline);border-radius:6px;padding:3px 6px;font-family:var(--mono);font-size:12px}
+.cpl input:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
+.tier-note a{color:var(--cyan);text-underline-offset:2px}
+.tier-note a:hover{color:var(--amber)}
+/* Modules V, VI, VIII-XII, XIV, XVI: prose runs the full column instead of a 64-74ch strip on the
+   left, matching the standalone module extracts. Drop a section from this list to restore the strip. */
+:is(#scramble,#gnss,#hydrogen,#cosmos,#master,#horizons,#attractor,#volume,#observatory) :is(p,.lede,.gr-list){max-width:none}
+:is(#scramble,#gnss,#hydrogen,#cosmos,#master,#horizons,#attractor,#volume,#observatory) .panel + .tier-note{margin-top:18px}
+.gr-list{list-style:none;margin:22px 0 0;display:grid;gap:12px;max-width:64ch}
+.gr-list li{padding-left:26px;position:relative;color:var(--ivory-dim);font-size:16px}
+.gr-list li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:1.5px;background:linear-gradient(90deg,var(--cyan),var(--amber))}
+
+/* lattice */
+.lattice-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:40px;align-items:start;margin-top:28px}
+@media(max-width:940px){.lattice-grid{grid-template-columns:1fr}}
+.scale-row{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 6px}
+.scale-cell{font-family:var(--mono);font-size:13px;color:var(--ivory-dim);border:1px solid var(--hairline);border-radius:8px;padding:9px 0;cursor:pointer;transition:all .18s;background:transparent;flex:1;min-width:44px;text-align:center}
+.scale-cell small{display:block;font-size:9px;color:var(--ivory-faint);letter-spacing:.08em;margin-top:2px}
+.scale-cell:hover{border-color:var(--cyan);color:var(--cyan)}
+.scale-cell.on{border-color:var(--amber);color:var(--amber);background:rgba(245,168,60,.09);box-shadow:0 0 18px rgba(245,168,60,.18)}
+.scale-cell:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+/* papers / compendium */
+.papers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px}
+.paper{border:1px solid var(--hairline);border-radius:12px;padding:22px 22px 20px;background:linear-gradient(160deg,var(--field-2),transparent 70%);transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.paper:hover{border-color:var(--cyan-dim);transform:translateY(-3px)}
+.paper .pn{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.08em;margin-bottom:11px}
+.paper h3{font-size:17.5px;line-height:1.35;font-weight:600}
+.paper p{font-size:13.5px;line-height:1.6;color:var(--ivory-faint);margin:9px 0 0;max-width:none}
+.paper .glyph{position:absolute;right:14px;top:8px;font-family:var(--serif);font-style:italic;font-size:42px;color:rgba(89,214,201,.14)}
+
+.origin{border:1px solid var(--hairline);border-left:2px solid var(--amber);border-radius:0 12px 12px 0;padding:26px 30px;background:linear-gradient(90deg,rgba(245,168,60,.05),transparent 55%);margin-top:28px}
+.origin p{max-width:72ch}
+.origin .tagline{font-family:var(--mono);font-size:12px;color:var(--amber);letter-spacing:.06em;margin-bottom:13px}
+
+footer{border-top:1px solid var(--hairline);padding:54px 0 70px;font-family:var(--grot);font-size:12px;letter-spacing:.14em;color:var(--ivory-faint)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:baseline}
+footer .disc{font-family:var(--serif);font-size:13.5px;letter-spacing:0;max-width:52ch;line-height:1.6}
+
+/* scroll progress: time elapsed through the document */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--cyan),var(--amber));box-shadow:0 0 10px rgba(245,168,60,.5);pointer-events:none}
+.navlinks a.active{color:var(--amber)}
+/* section reveal (only when JS is live) */
+body.js section > .wrap{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+body.js section > .wrap.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){body.js section > .wrap{opacity:1;transform:none;transition:none}}
+
+/* command console */
+#palette{position:fixed;inset:0;z-index:80;display:none;background:rgba(4,6,12,.66);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#palette.open{display:flex;align-items:flex-start;justify-content:center;padding:12vh 18px 0}
+.pal-box{width:min(560px,100%);background:var(--field-2);border:1px solid var(--cyan-dim);border-radius:14px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 40px rgba(89,214,201,.12)}
+.pal-box input{width:100%;background:transparent;border:none;outline:none;color:var(--ivory);font-family:var(--mono);font-size:15px;padding:16px 18px;border-bottom:1px solid var(--hairline)}
+.pal-box input::placeholder{color:var(--ivory-faint)}
+.pal-list{max-height:46vh;overflow-y:auto}
+.pal-item{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:11px 18px;cursor:pointer;font-family:var(--grot);font-size:13px;letter-spacing:.06em;color:var(--ivory-dim)}
+.pal-item .cat{font-family:var(--mono);font-size:10px;color:var(--ivory-faint);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.pal-item.sel{background:var(--field-3);color:var(--amber)}
+.pal-item.sel .cat{color:var(--cyan)}
+.pal-foot{display:flex;gap:16px;padding:9px 18px;border-top:1px solid var(--hairline);font-family:var(--mono);font-size:10px;color:var(--ivory-faint)}
+kbd{font-family:var(--mono);font-size:10px;color:var(--cyan);border:1px solid var(--hairline);border-bottom-width:2px;border-radius:4px;padding:1px 6px;background:var(--field)}
+#palBtn{font-family:var(--mono);font-size:10.5px;color:var(--ivory-faint);background:transparent;border:1px solid var(--hairline);border-radius:6px;padding:4px 9px;cursor:pointer;white-space:nowrap;transition:color .2s,border-color .2s}
+#palBtn:hover{color:var(--cyan);border-color:var(--cyan-dim)}
+.key-hint{font-family:var(--mono);font-size:10.5px;color:var(--ivory-faint);letter-spacing:.04em;margin-top:10px}
+
+/* M3 source lattice */
+.m3-wrap{overflow-x:auto;padding:18px}
+.m3-grid{display:grid;grid-template-columns:repeat(13,minmax(52px,1fr));gap:0;min-width:720px;border:1px solid var(--hairline)}
+.m3-cell{
+  font-family:var(--mono);font-size:10.5px;color:var(--ivory-dim);
+  background:transparent;border:none;border-right:1px solid rgba(237,232,220,.09);border-bottom:1px solid rgba(237,232,220,.09);
+  padding:9px 3px;cursor:pointer;text-align:center;white-space:nowrap;transition:background .15s,color .15s;
+}
+.m3-cell:hover{color:var(--cyan);background:rgba(89,214,201,.06)}
+.m3-cell:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+.m3-cell.band{background:rgba(89,214,201,.045)}
+.m3-cell.bandL{border-left:2px double rgba(89,214,201,.55)}
+.m3-cell.bandR{border-right:2px double rgba(89,214,201,.55)}
+.m3-cell.a440{box-shadow:inset 0 0 0 1px rgba(245,168,60,.7)}
+.m3-cell.zeroSph{position:relative}
+.m3-cell.zeroSph::after{content:"";position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;border:1px solid rgba(237,232,220,.55);background:transparent}
+.m3-cell:not(.zeroSph)::after{content:"";position:absolute;top:3px;right:3px;width:7px;height:7px;border-radius:50%;border:1px solid rgba(89,214,201,.30);background:radial-gradient(circle at 35% 35%, rgba(89,214,201,.45), rgba(89,214,201,.06))}
+.m3-cell{position:relative}
+.m3-key-zero,.m3-key-work{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:baseline;margin:0 2px}
+.m3-key-zero{border:1px solid rgba(237,232,220,.55)}
+.m3-key-work{border:1px solid rgba(89,214,201,.35);background:radial-gradient(circle at 35% 35%, rgba(89,214,201,.5), rgba(89,214,201,.08))}
+.m3-cell.rule{border-right:3px double rgba(237,232,220,.35)}
+.m3-cell.tonic{color:var(--amber);font-weight:500}
+
+.m3-cell.lit{background:rgba(245,168,60,.16);color:var(--amber);box-shadow:inset 0 0 0 1px rgba(245,168,60,.4)}
+.m3-cell.sel{background:rgba(245,168,60,.3);color:var(--field);font-weight:600;text-shadow:none}
+.m3-readout{font-family:var(--mono);font-size:11.5px;color:var(--ivory-dim);padding:12px 20px;border-top:1px solid var(--hairline);display:flex;gap:18px;flex-wrap:wrap}
+.m3-readout b{color:var(--amber);font-weight:500}
+.m3-readout .q{color:var(--cyan)}
+.m3-grid.m3-num .m3-cell{font-size:9.3px;letter-spacing:0;padding:9px 2px}
+
+
+/* live equation lines — panels recalculate with the module's current parameters */
+.eq-live{border-top:1px dashed var(--hairline);margin-top:16px;padding-top:12px;color:var(--cyan);font-size:14px;overflow-x:auto}
+.eq-live .katex{font-size:.98em}
+.eq-live::before{content:"live";font-family:var(--grot);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:7px}
+.txt-in{font-family:var(--mono);font-size:12.5px;color:var(--ivory);background:var(--field-3);border:1px solid var(--hairline);border-radius:8px;padding:8px 12px;width:100%;outline:none}
+.txt-in:focus{border-color:var(--cyan)}
+#helpBox{position:fixed;inset:0;z-index:80;display:none;background:rgba(4,6,12,.66);backdrop-filter:blur(6px)}
+#helpBox.open{display:flex;align-items:center;justify-content:center;padding:20px}
+.help-card{width:min(460px,100%);background:var(--field-2);border:1px solid var(--cyan-dim);border-radius:14px;padding:26px 30px}
+.help-card h3{font-family:var(--grot);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+.help-card .row{display:flex;justify-content:space-between;gap:16px;font-family:var(--grot);font-size:13px;color:var(--ivory-dim);padding:7px 0;border-bottom:1px solid rgba(237,232,220,.06)}
+.icv-out{font-family:var(--mono);font-size:11.5px;color:var(--cyan);margin-top:10px;letter-spacing:.04em}
+.icv-out b{color:var(--amber);font-weight:500}
+@keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hl-panel{position:relative}
+.hl-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;z-index:2;
+  background:linear-gradient(-65deg,var(--cyan),#c850c8,var(--amber),var(--cyan));
+  background-size:400% 400%;animation:gradientBG 45s ease infinite}
+@media(prefers-reduced-motion:reduce){.hl-panel::before{animation:none}}
+.qreg{display:flex;flex-wrap:wrap;gap:6px;padding:12px 20px;border-top:1px solid var(--hairline)}
+.qreg .qk{font-family:var(--mono);font-size:10.5px;color:var(--ivory-dim);border:1px solid var(--hairline);border-radius:6px;padding:5px 9px;cursor:pointer;background:transparent;transition:all .15s}
+.qreg .qk small{color:var(--ivory-faint);margin-right:5px}
+.qreg .qk:hover{border-color:var(--cyan);color:var(--cyan)}
+.qreg .qk.hit{border-color:var(--amber);color:var(--amber);background:rgba(245,168,60,.12);box-shadow:0 0 14px rgba(245,168,60,.25)}
+.qreg .qk.zero{border-style:dashed;color:var(--ivory-faint)}
+.qreg .qk.zero.hit{border-color:var(--ivory);color:var(--ivory);background:rgba(237,232,220,.08)}
+</style>
+</head>
+<body>
+<div class="wrap" style="padding-top:28px">
+  <div style="font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ivory-faint)">Chronowave Dynamics &middot; Temporal Engine &middot; standalone module extract</div>
+</div>
+<section id="cosmos">
+  <div class="wrap">
+    <div class="eyebrow"><span class="rn">IX</span> Dark energy &amp; the cold sky</div>
+    <h2>The cosmos, driven from <em>inside time</em></h2>
+    <p class="lede">In the Temporal Framework, dark energy is not an energy of empty space but a decaying
+      temporal density, &rho;<sub>&Lambda;</sub> = &alpha;&#8323;/t&#179;, whose gradient pushes where gravity
+      pulls. Calibrated at &alpha;&#8323; &asymp; 6.08&times;10<sup>26</sup> kg&middot;s&#179;/m&#179;
+      (&rho;<sub>&Lambda;</sub> = 7.36&times;10<sup>&minus;27</sup> kg/m&#179; today), the correction lifts the
+      late-time Hubble rate onto the SH0ES side of the tension.</p>
+    <div class="eq-panel" data-tag="Temporal dark energy">
+      <div class="eq eq-scroll" data-tex="\rho_{\Lambda}(t) = \frac{\alpha_3}{t^3}, \qquad P_{\Lambda} = -\frac{\partial \rho_{\Lambda}}{\partial t} = \frac{3\alpha_3}{t^4}, \qquad H(t) = \frac{\dot{a}(t)}{a(t)} + \frac{\alpha_3}{t^3}"></div>
+    </div>
+    <div class="split top" style="margin-top:30px">
+      <div class="panel">
+        <div class="panel-head">
+          <span>&rho;<sub>&Lambda;</sub>(t) decay &middot; log&ndash;log</span>
+          <span style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <button class="btn mini" id="coRun" aria-pressed="false">&#9654;&nbsp;Run expansion</button>
+            <span class="readout">t = <b id="coT">4.36e17 s</b></span>
+          </span>
+        </div>
+        <canvas class="viz" id="cosmoCanvas" height="430" aria-label="Log-log chart of dark energy density decaying with cosmic time, with a Hubble tension gauge"></canvas>
+        <div class="controls">
+          <div class="ctrl" style="flex:2 1 280px">
+            <label for="coTR">Cosmic time (log&#8321;&#8320; s) <output id="coTROut">17.64</output></label>
+            <input type="range" id="coTR" min="15.5" max="18" step="0.001" value="17.639">
+          </div>
+          <div class="ctrl">
+            <label for="coA3">&alpha;&#8323; scaling <output id="coA3Out">1.00&times;</output></label>
+            <input type="range" id="coA3" min="0" max="2.5" step="0.01" value="1">
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="k">&rho;_&Lambda;(t)</div><div class="v warm" id="coRho">7.36e-27 kg/m&#179;</div></div>
+          <div class="stat"><div class="k">P_&Lambda;(t)</div><div class="v" id="coP">5.07e-44 kg/m&#179;/s</div></div>
+          <div class="stat"><div class="k">H&#8320; dynamic</div><div class="v warm" id="coH0">73.1 km/s/Mpc</div></div>
+          <div class="stat"><div class="k">redshift z</div><div class="v" id="coZ">0.00</div></div>
+          <div class="stat"><div class="k">temporal fraction</div><div class="v" id="coFS8">&mdash;</div></div>
+        </div>
+        <div class="controls" style="padding-top:0">
+          <div class="ctrl" style="flex:1 1 100%"><div class="readout" id="coVerd" style="line-height:1.7">&mdash;</div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <span>ISW void probe &middot; <span class="sym">&Delta;T &prop; &alpha;&#8323;(t<sub>i</sub><sup>&minus;3</sup> &minus; t<sub>f</sub><sup>&minus;3</sup>)</span></span>
+          <span class="readout">observed &Delta;T = <b id="voT">-150 &micro;K</b></span>
+        </div>
+        <canvas class="viz" id="voidCanvas" height="298" aria-label="Simulated CMB patch showing the selected cold spot"></canvas>
+        <div class="controls" style="padding-top:12px;padding-bottom:0">
+          <div class="chips" role="group" aria-label="Voids">
+            <button class="chip" data-void="0" aria-pressed="true">Great Cold Spot</button>
+            <button class="chip" data-void="1">Bo&ouml;tes Void</button>
+            <button class="chip" data-void="2">Eridanus Supervoid</button>
+            <button class="chip" data-void="3">SDSS Median</button>
+            <button class="chip" data-void="4">DES Largest</button>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="ctrl narrow">
+            <label for="cvR">Void radius <output id="cvROut">300 Mpc</output></label>
+            <input type="range" id="cvR" min="50" max="700" step="5" value="300">
+          </div>
+          <div class="ctrl narrow">
+            <label for="cvD">Underdensity &delta; <output id="cvDOut">0.20</output></label>
+            <input type="range" id="cvD" min="0.02" max="0.6" step="0.01" value="0.2">
+          </div>
+          <div class="ctrl narrow" style="flex:1 1 100%">
+            <span class="readout">predicted ISW: <b id="cvT">&minus;19.8 &micro;K</b> &middot; <b id="cvRank"></b>
+              <br><span style="opacity:.7">cosmology for that figure: &Omega;<sub>&Lambda;</sub> = 0.45 + 0.35&thinsp;s and r<sub>H</sub> = 4440 Mpc, a hand-set mapping (ASSUMED).
+              With this module's own &Omega;<sub>m</sub> = <span id="cvOm">&mdash;</span> and H<sub>0</sub> = <span id="cvH">&mdash;</span> km/s/Mpc: <b id="cvT2">&mdash;</b></span></span>
+          </div>
+        </div>
+        
+        <div class="stats">
+          <div class="stat"><div class="k">radius</div><div class="v" id="voR">150 Mpc</div></div>
+          <div class="stat"><div class="k">density &delta;</div><div class="v" id="voD">-0.3</div></div>
+          <div class="stat"><div class="k">redshift</div><div class="v" id="voZ">0.2</div></div>
+          <div class="stat"><div class="k">t&#179; term &middot; paper's table</div><div class="v warm" id="voT3">1.58e-2</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="tier-note">H&#8320; is computed, not asserted: fed the CMB's H&#8320;-independent
+      physical matter density, the framework's &rho;<sub>&Lambda;</sub> = &alpha;&#8323;/t&#179; returns 73.13
+      km/s/Mpc &mdash; 0.2&sigma; from SH0ES, 11.5&sigma; from Planck &mdash; and predicts
+      &Omega;<sub>m</sub>&nbsp;=&nbsp;0.267, independently checkable against weak lensing, clusters, and BAO.
+      <span style="color:rgb(232,110,204)">[OPEN]</span> Because &rho;<sub>&Lambda;</sub> falls faster than matter
+      running the clock backward, the temporal term dominates every earlier epoch rather than less of them &mdash;
+      the opposite of what structure formation needs, a live tension raised here rather than papered over. The
+      w&nbsp;=&nbsp;p/2&minus;1 mapping survives a background-assumption challenge: redone self-dominated, both
+      readings agree only at p&nbsp;=&nbsp;0 and p&nbsp;=&nbsp;3, which is exactly where the framework's own
+      candidates sit. <span style="color:rgb(232,110,204)">[OPEN]</span> The Great Cold Spot's &minus;150&thinsp;&micro;K
+      is the observation the void panel is compared with, not something the predictor returns: for that spot's
+      listed radius and underdensity it gives a few &micro;K (&asymp;&minus;4 with the hand-set cosmology,
+      &asymp;&minus;6 with this module's own). The paper reaches &minus;150&thinsp;&micro;K only with a different, negative
+      &alpha;&#8323; (&minus;8.76&times;10<sup>29</sup>, in other units), not the calibration above.</p>
+    <div class="panel" style="margin-top:26px">
+      <div class="panel-head">
+        <span>The exponent of &rho;<sub>&Lambda;</sub> &prop; t<sup>&minus;p</sup>, put on trial</span>
+        <span class="readout">w = <b id="coW">+0.500</b> &middot; <b id="coWV">&mdash;</b></span>
+      </div>
+      <canvas class="viz" id="coWCanvas" height="248" aria-label="Equation of state against the density exponent, and the matter versus temporal density crossing"></canvas>
+      <div class="controls" style="padding-top:12px">
+        <div class="ctrl" style="flex:2 1 300px">
+          <label for="coEx">density exponent p <output id="coExOut">3.00</output></label>
+          <input type="range" id="coEx" min="0" max="4" step="0.01" value="3">
+        </div>
+        <div class="ctrl narrow" style="flex:0 0 auto;display:flex;align-items:flex-end;gap:8px">
+          <button class="btn mini ghost" id="coP3" title="The framework's stated law">p = 3 &middot; framework</button>
+          <button class="btn mini ghost" id="coPA" title="The largest exponent that still accelerates">p = 4/3 &middot; threshold</button>
+        </div>
+        <div class="ctrl narrow" style="flex:1 1 100%;padding-bottom:0"><label style="margin:0;color:var(--cyan)">&hellip; or set it the framework's way: how many of t&#8321;, t&#8322;, t&#8323; carry the cosmic age?</label></div>
+        <div class="ctrl narrow" style="flex:0 0 auto;display:flex;align-items:flex-end">
+          <span class="seg" role="group" aria-label="Cosmic time dimensions">
+            <button id="coNC0" aria-pressed="false" title="All three pinned: the temporal volume is static">n&#7580; = 0</button>
+            <button id="coNC1" aria-pressed="false">1</button>
+            <button id="coNC2" aria-pressed="false">2</button>
+            <button id="coNC3" aria-pressed="true" title="All three grow with the age: the t&#179; reading">3</button>
+          </span>
+        </div>
+        <div class="ctrl" style="flex:2 1 300px"><div class="readout" id="coNCOut" style="line-height:1.7">&mdash;</div></div>
+        <div class="ctrl" style="flex:1 1 100%"><div class="readout" id="coWNote" style="line-height:1.7">&mdash;</div></div>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:26px">
+      <div class="panel-head">
+        <span>Route 2 in numbers &middot; which part of an atom can see &alpha; move?</span>
+        <span class="readout" id="akChip">&mdash;</span>
+      </div>
+      <canvas class="viz" id="akCanvas" height="380" aria-label="Alpha-sensitivity of hydrogen-like lines against nuclear charge, and the drift a time-dependent coupling would cause compared with atomic-clock limits"></canvas>
+      <div class="controls" id="akCtl" style="padding-top:12px">
+        <div class="ctrl" style="flex:2 1 280px">
+          <label for="akS">coupling S = d&thinsp;ln&thinsp;&alpha; / d&thinsp;ln&thinsp;t<sub>i</sub> (log) <output id="akSOut">1</output></label>
+          <input type="range" id="akS" min="-10" max="0.5" step="0.05" value="0">
+        </div>
+        <div class="chips" role="group" aria-label="Coupling presets" style="flex:1 1 100%">
+          <button class="chip" data-aks="0" aria-pressed="true">S = 1 &middot; &ldquo;t&#8323; sets &alpha;&rdquo;</button>
+          <button class="chip" data-aks="-5">S = 10&#8315;&#8309;</button>
+          <button class="chip" data-aks="99">S at the clock bound</button>
+        </div>
+        <div class="chips" role="group" aria-label="Ion" style="flex:1 1 100%">
+          <button class="chip" data-akz="1" aria-pressed="true">H</button>
+          <button class="chip" data-akz="2">He&#8314;</button>
+          <button class="chip" data-akz="6">C&#8309;&#8314;</button>
+          <button class="chip" data-akz="26">Fe&#178;&#8309;&#8314;</button>
+          <button class="chip" data-akz="54">Xe&#8309;&#179;&#8314;</button>
+          <button class="chip" data-akz="92">U&#8313;&#185;&#8314;</button>
+        </div>
+        <div class="ctrl" style="flex:1 1 100%"><div class="readout" id="akOut" style="line-height:1.8">&mdash;</div></div>
+      </div>
+    </div>
+    <p class="tier-note">A changing &alpha; shifts every atomic line by the same common
+      factor (K = 2), so only the departure K&minus;2 &mdash; the proper-time part of Module VIII's atom &mdash; can
+      witness it: 3.3&times;10<sup>&minus;5</sup> of Lyman-&alpha; in hydrogen, 0.43 in U<sup>91+</sup>. Optical-clock
+      bounds on &alpha;&#775;/&alpha; translate to |S| &lt; 4.4&times;10<sup>&minus;8</sup> on the framework's
+      coupling &mdash; seven decades below what "t&#8323; sets &alpha;" would require &mdash; so whatever sets
+      &alpha; is proper time, consistent with how Module VIII already builds the atom. Separately, read as a plain
+      Friedmann fluid, &rho;<sub>&Lambda;</sub> &prop; t<sup>&minus;3</sup> gives w = +&frac12;, decelerating, not
+      dark energy at all. The fix is to read t&sup3; as the temporal volume t&#8321;t&#8322;t&#8323; rather than age
+      cubed: letting n<sub>c</sub> of the three dimensions track cosmic age turns p from a dial into a count, w =
+      n<sub>c</sub>/2&minus;1, and the observed w = &minus;1.03&plusmn;0.03 inverts to n<sub>c</sub> = &minus;0.06
+      &plusmn; 0.06 &mdash; a static temporal volume, the only count within reach by seventeen sigma over the next
+      one. <a href="Module_IX_Manual.md">Full notes in the Manual &rarr;</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="color:var(--ivory);letter-spacing:.3em;text-transform:uppercase;margin-bottom:10px">Chronowave <span style="color:var(--amber)">Dynamics</span></div>
+      <div>Framework &amp; papers &middot; Anthony M. Vargas &amp; Aethus Iqbal-Samir &middot; 2024&ndash;2026</div>
+    </div>
+    <div class="disc">Module IX &middot; Dark energy &amp; the cold sky, extracted standalone from the full Temporal Engine compendium on 2026-11-14. A speculative theoretical framework, presented as proposed in the source papers and prototypes.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const CYAN = "#59D6C9", AMBER = "#F5A83C", IVORY = "#EDE8DC";
+function renderTex(el, tex, display){
+  if (window.katex){
+    try { katex.render(tex, el, {displayMode: display !== false, throwOnError: false}); return; }
+    catch(e){}
+  }
+  el.innerHTML = '<span class="katex-fallback"></span>';
+  el.firstChild.textContent = tex;
+}
+document.querySelectorAll(".eq[data-tex]").forEach(el => renderTex(el, el.dataset.tex));
+function fitCanvas(cv){
+  /* THE WHITEOUT BUG LIVED HERE: this used to read h from the height
+     attribute and then write cv.height = h*dpr \u2014 which IS that attribute.
+     On DPR-2 devices every call doubled the canvas (300\u2192600\u2192...) until it
+     passed the browser's max canvas area and rendering silently stopped:
+     the hyper-expansion and the blankouts were one bug. The design height
+     is now cached once and the resize is idempotent. */
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  if (!cv.dataset.designH) cv.dataset.designH = cv.getAttribute("height") || cv.clientHeight || 300;
+  const w = cv.clientWidth, h = +cv.dataset.designH;
+  const bw = Math.round(w * dpr), bh = Math.round(h * dpr);
+  if (cv.width !== bw) cv.width = bw;
+  if (cv.height !== bh) cv.height = bh;
+  cv.style.height = h + "px";
+  const ctx = cv.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return {ctx, w, h};
+}
+const animators = [];
+function animate(cv, draw){
+  /* Resilient loop: an exception in one frame must never kill the rAF chain
+     (the old behavior \u2014 one NaN-radius throw blanked the module until
+     reload: the reported whiteouts). Errors are caught, context state is
+     restored so dirt can't leak into later frames, the first few are logged
+     (+ collected on window.__frameErrs for the harness). Zero-size boxes are
+     skipped rather than fitted; height changes now also trigger refit. */
+  let st = null, visible = true, t0 = performance.now(), errN = 0;
+  const io = new IntersectionObserver(en => { visible = en[0].isIntersecting; }, {rootMargin:"140px"});
+  io.observe(cv);
+  function frame(now){
+    if (visible && cv.clientWidth > 0){
+      /* designH is also watched: a view that asks for a new height from inside
+         its draw (VIII's legacy "Two clocks · Z" asks for 472/664) used to be
+         clipped at the old height, because clientHeight still matched st.h */
+      if (!st || st.w !== cv.clientWidth || st.h !== cv.clientHeight ||
+          (cv.dataset.designH && st.h !== +cv.dataset.designH)) st = fitCanvas(cv);
+      try{
+        st.ctx.save();
+        draw(st.ctx, st.w, st.h, reduced ? 0 : (now - t0) / 1000);
+        st.ctx.restore();
+      }catch(e2){
+        try{ st.ctx.restore(); }catch(e3){}
+        errN++;
+        (window.__frameErrs = window.__frameErrs || []).push(cv.id + ": " + e2.message);
+        if (errN <= 3) console.warn("frame error on #" + cv.id, e2);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  animators.push(() => { st = null; });
+}
+window.addEventListener("resize", () => animators.forEach(f => f()));
+function duo(mix, a){ /* cyan->amber */
+  return `rgba(${89+(245-89)*mix|0},${214+(168-214)*mix|0},${201+(60-201)*mix|0},${a})`;
+}
+const RHO0 = 7.36e-27, T0 = 4.355e17;
+const TA = {
+  ALPHA: 1/137.035999084, MEC2: 510998.95, HC: 1239.84198433,
+  HBAR: 6.582119569e-16, HPL: 4.135667696e-15, RY: 13.605693122994,
+  MU: { me: 5.48579909065e-4, p: 1.007276466621, d: 2.013553212745, a: 4.001506179127,
+        U: 238.0508 - 92*5.48579909065e-4 },
+  NAMES: ("H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr " +
+          "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb " +
+          "Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db " +
+          "Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og").split(" "),
+  STATES: [
+    { n: 1, k: -1, lab: "1s½" }, { n: 2, k: -1, lab: "2s½" }, { n: 2, k: 1, lab: "2p½" },
+    { n: 2, k: -2, lab: "2p3/2" }, { n: 3, k: -3, lab: "3d5/2" }, { n: 4, k: -4, lab: "4f7/2" }
+  ],
+  /* X-ray Data Booklet, Table 1-2 (LBNL) — MEASURED Kα₁, Kα₂ in eV */
+  XDB: [[13,1486.70,1486.27],[14,1739.98,1739.38],[20,3691.68,3688.09],[22,4510.84,4504.86],
+        [24,5414.72,5405.509],[25,5898.75,5887.65],[26,6403.84,6390.84],[27,6930.32,6915.30],
+        [28,7478.15,7460.89],[29,8047.78,8027.83],[30,8638.86,8615.78],[32,9886.42,9855.32],
+        [40,15775.1,15690.9],[42,17479.34,17374.3],[45,20216.1,20073.7],[46,21177.1,21020.1],
+        [47,22162.92,21990.3],[48,23173.6,22984.1],[50,25271.3,25044.0],[53,28612.0,28317.2],
+        [56,32193.6,31817.1],[60,37361.0,36847.4],[64,42996.2,42308.9],[70,52388.9,51354.0],
+        [73,57532,56277],[74,59318.24,57981.7],[78,66832,65112],[79,68803.7,66989.5],
+        [80,70819,68895],[82,74969.4,72804.2],[83,77107.9,74814.8],[92,98439,94665]],
+  /* the framework's own historical times — FITTED, drawn for comparison only */
+  FIT: [["t₁", 1.84e-22], ["t₂", 1.29e-20], ["t₃", 5.35e-13]],
+  view: 0, Z: 1, st: 0, kExp: -1, beta: 0.5, xmode: 0, box: null,
+
+  /* <dtau/dt> for a Dirac-Coulomb level: n, kappa (j = |kappa| - 1/2) */
+  f(n, kappa, Z){
+    const za = Z*this.ALPHA, g2 = kappa*kappa - za*za;
+    if (!(g2 > 0)) return NaN;                         /* past Z*alpha = |kappa|: no bound state */
+    const nr = n - Math.abs(kappa);
+    return 1/Math.sqrt(1 + Math.pow(za/(nr + Math.sqrt(g2)), 2));
+  },
+  red(M){ return M ? this.MEC2/(1 + this.MU.me/M) : this.MEC2; },     /* reduced-mass rest energy */
+  /* 1 - <dtau/dt>, written so it never subtracts two numbers near one: for
+     hydrogen 1 - f is 2.7e-5 and the naive form keeps only 11 digits of it */
+  u(n, kappa, Z){
+    const za = Z*this.ALPHA, g2 = kappa*kappa - za*za;
+    if (!(g2 > 0)) return NaN;
+    const x = za/(n - Math.abs(kappa) + Math.sqrt(g2)), s1 = Math.sqrt(1 + x*x);
+    return x*x/(s1*(1 + s1));
+  },
+  /* d<dtau/dt>/d ln(alpha), analytic: f = (1+x^2)^(-1/2), x = Za/(n_r + g),
+     g = sqrt(kappa^2 - (Za)^2)  =>  dx/d(Za) = (n_r + g + (Za)^2/g)/(n_r + g)^2 */
+  dfa(n, kappa, Z){
+    const za = Z*this.ALPHA, g = Math.sqrt(kappa*kappa - za*za), nr = n - Math.abs(kappa), x = za/(nr + g);
+    return -x*Math.pow(1 + x*x, -1.5)*(nr + g + za*za/g)/Math.pow(nr + g, 2)*za;
+  },
+  /* alpha-sensitivity of the line upper -> lower: K = d ln(omega)/d ln(alpha).
+     2 exactly for every line of the non-relativistic atom; K - 2 is proper time */
+  K(up, lo, Z){
+    return (this.dfa(up[0], up[1], Z) - this.dfa(lo[0], lo[1], Z))/(this.u(lo[0], lo[1], Z) - this.u(up[0], up[1], Z));
+  },
+  Bpt(n, kappa, Z, M){ return this.red(M)*this.u(n, kappa, Z); },
+  Bnr(n, Z, M){ return 0.5*Math.pow(Z*this.ALPHA, 2)*this.red(M)/(n*n); },
+  name(Z){ return Z <= this.NAMES.length ? this.NAMES[Z-1] : "Z=" + Z; },
+  /* seconds of proper time lost per day of coordinate time, formatted */
+  lost(fv){
+    const s = (1 - fv)*86400;
+    return s < 1e-3 ? (s*1e6).toFixed(2) + " µs" : s < 1 ? (s*1e3).toFixed(2) + " ms"
+         : s < 120 ? s.toFixed(2) + " s" : s < 7200 ? (s/60).toFixed(1) + " min" : (s/3600).toFixed(2) + " h";
+  },
+  /* the atom's clock ladder for charge Z: each rung is set by a higher power of (Z alpha) */
+  ladder(Z){
+    const tC = this.HBAR/this.MEC2;
+    const f1 = this.f(1, -1, Z);
+    const B1 = this.MEC2*(1 - f1);
+    const g = 1/f1, za = Z*this.ALPHA;
+    const tOrb = 2*Math.PI*tC/(g*za*za);                /* Sommerfeld circular n=1, coordinate time */
+    const fs = this.MEC2*(this.f(2, -2, Z) - this.f(2, 1, Z));
+    return [
+      { k: "Compton · proper clock", t: tC, why: "ħ/mc² · (Zα)⁰", tag: "FD" },
+      { k: "orbit", t: tOrb, why: "2πħ/(γ(Zα)²mc²)", tag: "FM" },
+      { k: "binding · the beat", t: this.HBAR/B1, why: "ħ/B · (Zα)⁻²", tag: "FM" },
+      { k: "fine structure", t: this.HBAR/fs, why: "ħ/ΔE(2p) · (Zα)⁻⁴", tag: "FM" }
+    ].concat(Z === 1 ? [{ k: "Lamb · beyond Dirac", t: this.HBAR/(1057.845e6*this.HPL), why: "2S–2P, 1057.8 MHz", tag: "M" }] : []);
+  }
+};
+const AK = {
+  T0: 13.8e9,                         /* yr, age of the universe (Planck 2018, 13.787 Gyr) */
+  ADOT: 1.0e-18, ADOT_E: 1.1e-18,     /* yr^-1 — Lange et al. 2021, PRL 126, 011102 (Yb+ E3/E2 vs Cs) — MEASURED */
+  PHI: 14e-9, PHI_E: 11e-9,           /* (c^2/alpha) d alpha/d Phi, same experiment — MEASURED */
+  LNZ4: Math.log(13.8/1.5),           /* ln(t0 / t(z = 4)), t(z = 4) ~ 1.5 Gyr in LCDM — ASSUMED, quasar comparison only */
+  QSO: 1e-5,                          /* |Delta alpha / alpha| to z ~ 4, conservative envelope of the quasar literature */
+  logS: 0, Z: 1, box: null,
+  LINES: [
+    { lab: "2P fine structure · 2P3/2 − 2P1/2", sh: "2P fine", u: [2, -2], l: [2, 1], col: "rgba(232,110,204,.95)" },
+    { lab: "Lyman-α₁ · 1S − 2P3/2", sh: "Lyα₁", u: [2, -2], l: [1, -1], col: "#59D6C9" },
+    { lab: "1S − 2S", sh: "1S–2S", u: [2, -1], l: [1, -1], col: "#F5A83C" },
+    { lab: "Balmer-α · 2P3/2 − 3D5/2", sh: "Hα", u: [3, -3], l: [2, -2], col: "rgba(237,232,220,.75)" }
+  ],
+  S(){ return Math.pow(10, this.logS); },
+  sBound(){ return (Math.abs(this.ADOT) + 2*this.ADOT_E)*this.T0; },       /* |S| allowed at 2 sigma */
+  phiBound(){ return Math.abs(this.PHI) + 2*this.PHI_E; },
+  fmtE(v, d){
+    if (v === 0) return "0";
+    const e = Math.floor(Math.log10(Math.abs(v))), m = v/Math.pow(10, e);
+    return (e === 0 ? v.toFixed(d) : m.toFixed(d) + "×10" + String(e).replace("-", "⁻").replace(/[0-9]/g, c => "⁰¹²³⁴⁵⁶⁷⁸⁹"[+c]));
+  },
+  readout(){
+    const o = document.getElementById("akOut"); if (!o) return;
+    const Z = this.Z, S = this.S(), rate = S/this.T0, sig = Math.abs(rate - this.ADOT)/this.ADOT_E;
+    const Ks = this.LINES.map(L => TA.K(L.u, L.l, Z));
+    const ok = sig < 2;
+    o.innerHTML =
+      "<b>" + TA.name(Z) + (Z > 1 ? " (one electron)" : "") + "</b> · K − 2, the part of each line that can see α move: " +
+      this.LINES.map((L, i) => "<span style='color:" + L.col + "'>" + L.sh + " " + this.fmtE(Ks[i] - 2, 2) + "</span>").join(" · ") +
+      "<br>coupling S = d ln α / d ln t<sub>i</sub> = <b>" + this.fmtE(S, 2) + "</b> · if a t<sub>i</sub> tracks cosmic age (n<sub>c</sub> ≥ 1), " +
+      "α drifts at S/t₀ = <b>" + this.fmtE(rate, 2) + " yr⁻¹</b> → <b style='color:" + (ok ? "var(--cyan)" : "var(--amber)") + "'>" +
+      (sig < 10 ? sig.toFixed(1) : sig < 1000 ? sig.toFixed(0) : this.fmtE(sig, 1)) + "σ</b> from the clock value (1.0 ± 1.1)×10⁻¹⁸ yr⁻¹" +
+      (ok ? "" : " — <span style='color:var(--amber)'>excluded</span>") +
+      "<br>the allowed coupling is |S| &lt; <b>" + this.fmtE(this.sBound(), 1) + "</b> (2σ) · since z ≈ 4 this S would move α by " +
+      this.fmtE(S*this.LNZ4, 1) + (S*this.LNZ4 > this.QSO ? " — also beyond the quasar envelope of 10⁻⁵" : "") +
+      "<br>the proper-time witness in this ion's Lyman-α₁: (K − 2)·α̇/α = <b>" + this.fmtE((Ks[1] - 2)*rate, 2) + " yr⁻¹</b>" +
+      " against a K = 2 reference; in its fine-structure splitting, " + this.fmtE((Ks[0] - 2)*rate, 2) + " yr⁻¹" +
+      "<br><span style='opacity:.75'>Local position invariance, same experiment: (c²/α) dα/dΦ = (14 ± 11)×10⁻⁹. Were t₃ a coordinate-time " +
+      "interval, α would follow the local clock rate with S of order one; the data allow |S| &lt; " + this.fmtE(this.phiBound(), 1) +
+      ". Whatever sets α is proper time.</span>";
+    const chip = document.getElementById("akChip");
+    if (chip) chip.innerHTML = "S = " + this.fmtE(S, 1) + " → <b style='color:" + (ok ? "var(--cyan)" : "var(--amber)") + "'>" +
+      (sig < 10 ? sig.toFixed(1) + "σ" : sig < 1000 ? sig.toFixed(0) + "σ" : "excluded") + "</b>";
+  },
+  sync(){
+    const el = document.getElementById("akS"), out = document.getElementById("akSOut");
+    if (el) el.value = String(this.logS);
+    if (out) out.textContent = this.fmtE(this.S(), 2);
+    document.querySelectorAll("#akCtl .chip[data-akz]").forEach(c => c.setAttribute("aria-pressed", String(+c.dataset.akz === this.Z)));
+    document.querySelectorAll("#akCtl .chip[data-aks]").forEach(c => c.setAttribute("aria-pressed",
+      String(Math.abs((+c.dataset.aks === 99 ? Math.log10(this.sBound()) : +c.dataset.aks) - this.logS) < 0.03)));
+    this.readout();
+  }
+};
+{
+  const el = document.getElementById("akS");
+  el.addEventListener("input", () => { const v = +el.value; AK.logS = Number.isFinite(v) ? v : 0; AK.sync(); });
+  document.querySelectorAll("#akCtl .chip[data-akz]").forEach(c => c.addEventListener("click", () => { AK.Z = +c.dataset.akz; AK.sync(); }));
+  document.querySelectorAll("#akCtl .chip[data-aks]").forEach(c => c.addEventListener("click", () => {
+    AK.logS = +c.dataset.aks === 99 ? Math.log10(AK.sBound()) : +c.dataset.aks; AK.sync();
+  }));
+  const cv = document.getElementById("akCanvas");
+  cv.addEventListener("click", ev => {
+    const B = AK.box; if (!B) return;
+    const r = cv.getBoundingClientRect();
+    const sx = (ev.clientX - r.left)*(cv.clientWidth/Math.max(1, r.width)), sy = (ev.clientY - r.top)*(cv.clientHeight/Math.max(1, r.height));
+    if (sx < B.x0 - 6 || sx > B.x1 + 6 || sy < B.y0 || sy > B.y1) return;
+    AK.Z = Math.max(1, Math.min(100, Math.round(1 + (sx - B.x0)/(B.x1 - B.x0)*99))); AK.sync();
+  });
+}
+animate(document.getElementById("akCanvas"), (ctx, w, h) => {
+  const cv = document.getElementById("akCanvas");
+  const narrow = w < 720;
+  const need = narrow ? 540 : 380;
+  if (+cv.dataset.designH !== need){ cv.dataset.designH = String(need); cv.style.height = need + "px"; }
+  ctx.clearRect(0, 0, w, h);
+  const INK = a => "rgba(237,232,220," + a + ")";
+  const mono = px => px + "px 'IBM Plex Mono', monospace";
+  /* ---- left: K - 2 against Z ---- */
+  const pX0 = narrow ? 46 : 58, pX1 = narrow ? w - 14 : Math.round(w*0.6), pY0 = 26, pY1 = narrow ? 290 : h - 40;
+  const lo = -6, hi = 1.5;
+  const X = Z => pX0 + (Z - 1)/99*(pX1 - pX0), Y = lk => pY1 - (Math.max(lo, Math.min(hi, lk)) - lo)/(hi - lo)*(pY1 - pY0);
+  AK.box = { x0: pX0, x1: pX1, y0: pY0, y1: pY1 };
+  ctx.strokeStyle = INK(.14); ctx.lineWidth = 1; ctx.strokeRect(pX0, pY0, pX1 - pX0, pY1 - pY0);
+  ctx.font = mono(8.5);
+  for (let e = lo; e <= Math.floor(hi); e++){
+    ctx.strokeStyle = INK(.06); ctx.beginPath(); ctx.moveTo(pX0, Y(e)); ctx.lineTo(pX1, Y(e)); ctx.stroke();
+    ctx.fillStyle = INK(.45); ctx.textAlign = "right"; ctx.fillText(e === 0 ? "1" : e === 1 ? "10" : "1e" + e, pX0 - 4, Y(e) + 3);
+  }
+  ctx.textAlign = "center";
+  [[1,"H"],[26,"Fe"],[54,"Xe"],[79,"Au"],[92,"U"]].forEach(([Z, nm]) => {
+    ctx.strokeStyle = INK(.25); ctx.beginPath(); ctx.moveTo(X(Z), pY1); ctx.lineTo(X(Z), pY1 + 4); ctx.stroke();
+    ctx.fillStyle = INK(.55); ctx.fillText(nm, X(Z), pY1 + 15);
+  });
+  ctx.fillStyle = INK(.45); ctx.fillText("Z · one-electron ion", (pX0 + pX1)/2, pY1 + 28);
+  ctx.textAlign = "left";
+  AK.LINES.forEach(L => {
+    ctx.strokeStyle = L.col; ctx.lineWidth = 1.7; ctx.beginPath();
+    for (let Z = 1; Z <= 100; Z += 0.5){ const y = Y(Math.log10(TA.K(L.u, L.l, Z) - 2)); Z === 1 ? ctx.moveTo(X(Z), y) : ctx.lineTo(X(Z), y); }
+    ctx.stroke();
+  });
+  /* legend in the empty lower-right; the non-relativistic statement up top */
+  {
+    const lw = narrow ? 92 : 236, lx = pX1 - lw - 3;
+    ctx.fillStyle = "rgba(11,16,28,.6)"; ctx.fillRect(lx, pY1 - 16 - AK.LINES.length*13, lw, AK.LINES.length*13 + 12);
+    AK.LINES.forEach((L, i) => {
+      const y = pY1 - 8 - (AK.LINES.length - 1 - i)*13;
+      ctx.strokeStyle = L.col; ctx.lineWidth = 1.7; ctx.beginPath(); ctx.moveTo(lx + 6, y - 3); ctx.lineTo(lx + 20, y - 3); ctx.stroke();
+      ctx.fillStyle = L.col; ctx.font = mono(narrow ? 8.5 : 9); ctx.fillText(narrow ? L.sh : L.lab, lx + 25, y);
+    });
+  }
+  ctx.fillStyle = INK(.6); ctx.font = mono(9);
+  ctx.fillText(narrow ? "K − 2 · the proper-time witness (log)" : "K − 2 = d ln ω/d ln α − 2 · the only part of a line that can see α move (log)", pX0 + 4, pY0 - 9);
+  ctx.fillStyle = "rgba(245,168,60,.8)"; ctx.font = mono(8.5);
+  ctx.fillText(narrow ? "non-rel. atom: K − 2 = 0, all lines" : "non-relativistic atom: K − 2 = 0 for every line", pX0 + 6, pY0 + 13);
+  /* selected Z */
+  ctx.strokeStyle = INK(.35); ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(X(AK.Z), pY0); ctx.lineTo(X(AK.Z), pY1); ctx.stroke();
+  AK.LINES.forEach(L => { const k = TA.K(L.u, L.l, AK.Z) - 2;
+    ctx.fillStyle = INK(.95); ctx.beginPath(); ctx.arc(X(AK.Z), Y(Math.log10(k)), 3.2, 0, 7); ctx.fill(); });
+  /* ---- right: the drift the coupling would cause, against the clocks ---- */
+  const qX = narrow ? 46 : pX1 + 70, qX1 = narrow ? w - 14 : w - 20;
+  const qY0 = narrow ? pY1 + 50 : pY0;
+  const mid = narrow ? qY0 + 64 : Math.round(h/2) - 30;
+  const rlo = -21, rhi = -9;
+  const RX = lv => qX + (Math.max(rlo, Math.min(rhi, lv)) - rlo)/(rhi - rlo)*(qX1 - qX);
+  ctx.fillStyle = INK(.6); ctx.font = mono(9);
+  ctx.fillText(narrow ? "|α̇/α| · yr⁻¹ (log)" : "|α̇/α| per year (log) · predicted vs clocks", qX, qY0 + 4);
+  const allow = Math.log10(Math.abs(AK.ADOT) + 2*AK.ADOT_E);
+  ctx.fillStyle = "rgba(89,214,201,.14)"; ctx.fillRect(RX(rlo), mid - 26, RX(allow) - RX(rlo), 52);
+  ctx.strokeStyle = CYAN; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(RX(allow), mid - 30); ctx.lineTo(RX(allow), mid + 30); ctx.stroke();
+  ctx.strokeStyle = INK(.3); ctx.beginPath(); ctx.moveTo(qX, mid); ctx.lineTo(qX1, mid); ctx.stroke();
+  ctx.font = mono(8.5); ctx.textAlign = "center";
+  for (let e = rlo + 1; e <= rhi; e += 2){
+    ctx.strokeStyle = INK(.3); ctx.beginPath(); ctx.moveTo(RX(e), mid - 3); ctx.lineTo(RX(e), mid + 3); ctx.stroke();
+    ctx.fillStyle = INK(.45); ctx.fillText("1e" + e, RX(e), mid + 44);
+  }
+  ctx.textAlign = "left"; ctx.fillStyle = CYAN;
+  ctx.fillText("allowed", RX(rlo) + 4, mid + 22);
+  const one = RX(Math.log10(1/AK.T0));
+  ctx.strokeStyle = "rgba(245,168,60,.7)"; ctx.setLineDash([3,3]); ctx.beginPath(); ctx.moveTo(one, mid - 18); ctx.lineTo(one, mid + 26); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(245,168,60,.85)"; ctx.textAlign = "right";
+  ctx.fillText("S = 1", one - 4, mid + 22);
+  const pr = Math.log10(AK.S()/AK.T0), prX = RX(pr);
+  ctx.fillStyle = "rgba(232,110,204,.95)"; ctx.beginPath(); ctx.moveTo(prX, mid - 8); ctx.lineTo(prX - 6, mid - 20); ctx.lineTo(prX + 6, mid - 20); ctx.closePath(); ctx.fill();
+  {
+    ctx.textAlign = "left"; ctx.font = mono(9);
+    const t = "predicted S/t₀ = " + AK.fmtE(AK.S()/AK.T0, 1), tw = ctx.measureText(t).width;
+    ctx.fillText(t, Math.max(qX, Math.min(qX1 - tw, prX - tw/2)), mid - 26);
+  }
+  ctx.textAlign = "left"; ctx.font = mono(8.5);
+  const gap = Math.log10(1/AK.T0) - allow;
+  const L = narrow
+    ? [["clocks: (1.0 ± 1.1)×10⁻¹⁸ yr⁻¹", INK(.55)], ["|S| < " + AK.fmtE(AK.sBound(), 1) + " (2σ)", CYAN],
+       ["LPI: |S| < " + AK.fmtE(AK.phiBound(), 1), INK(.55)], ["S = 1 misses by " + gap.toFixed(1) + " decades", "rgba(245,168,60,.85)"]]
+    : [["clocks: α̇/α = (1.0 ± 1.1)×10⁻¹⁸ yr⁻¹ · Lange et al. 2021", INK(.55)],
+       ["→ |S| < " + AK.fmtE(AK.sBound(), 1) + " at 2σ, for any tᵢ that tracks cosmic age", CYAN],
+       ["LPI, same data: |S| < " + AK.fmtE(AK.phiBound(), 1) + " were t₃ a coordinate time", INK(.55)],
+       ["an order-one coupling misses the clocks by " + gap.toFixed(1) + " decades", "rgba(245,168,60,.85)"]];
+  L.forEach(([t, c], i) => { ctx.fillStyle = c; ctx.fillText(t, qX, mid + 66 + i*15); });
+  const chip = document.getElementById("akChip");
+  if (chip && !chip.innerHTML) AK.readout();
+});
+AK.sync();
+const co = {
+  el: {
+    t: document.getElementById("coTR"), tOut: document.getElementById("coTROut"),
+    a: document.getElementById("coA3"), aOut: document.getElementById("coA3Out"),
+    T: document.getElementById("coT"), rho: document.getElementById("coRho"),
+    P: document.getElementById("coP"), H0: document.getElementById("coH0")
+  },
+  upd(){
+    const t = Math.pow(10, +this.el.t.value), s = +this.el.a.value;
+    const rho = s*RHO0*Math.pow(T0/t,3), P = 3*rho/t;
+    this.el.tOut.value = (+this.el.t.value).toFixed(2);
+    this.el.aOut.value = s.toFixed(2) + "\u00D7";
+    this.el.T.textContent = t.toExponential(2) + " s";
+    this.el.rho.innerHTML = rho.toExponential(2) + " kg/m\u00B3";
+    this.el.P.textContent = P.toExponential(2) + " kg/m\u00B3/s";
+    /* H0 is now COMPUTED, not interpolated. The old line lerped between the two
+       camps' published numbers (67.4 + 2.9s), which could never disagree with
+       anything. See co.cosmo(): the Friedmann constraint on today's densities. */
+    const cz = this.cosmo(s);
+    this.el.H0.textContent = cz.H0.toFixed(1) + " km/s/Mpc";
+    const gEl = document.getElementById("coFS8");
+    if (gEl) gEl.innerHTML = (cz.fmix*100).toFixed(1) + "&#37; temporal";
+    const vEl = document.getElementById("coVerd");
+    if (vEl){
+      const dP = Math.abs(cz.H0 - 67.4)/0.5, dS = Math.abs(cz.H0 - 73.4)/1.1;
+      vEl.innerHTML = "\u03A9<sub>m</sub> = <b>" + cz.OmM.toFixed(4) + "</b>, \u03A9<sub>\u039B</sub> = " +
+        cz.OmL.toFixed(4) + " \u00B7 sum " + (cz.OmM + cz.OmL).toFixed(4) +
+        " \u00B7 \u03C9<sub>m</sub> = \u03A9<sub>m</sub>h\u00B2 = " + (cz.OmM*cz.h*cz.h).toFixed(4) +
+        " <span style='opacity:.65'>(the MEASURED input, held fixed \u2014 so \u03A9<sub>m</sub> is an output, " +
+        "testable by lensing and clusters without the distance ladder)</span><br>" +
+        "Planck " + dP.toFixed(1) + "\u03C3 \u00B7 SH0ES " + dS.toFixed(1) + "\u03C3 \u00B7 " +
+        (dS < 3 ? "<span style='color:var(--amber)'>SH0ES-side only</span>"
+         : dP < 3 ? "<span style='color:var(--amber)'>Planck-side only</span>"
+         : "<span style='color:var(--amber)'>excluded by both \u2014 the module says no</span>") +
+        "<br><span style='color:rgba(232,110,204,.9)'>DERIVED consequence:</span> \u03C1<sub>\u039B</sub> \u221D t\u207B\u00B3 outruns matter (\u03C1<sub>m</sub> \u221D t\u207B\u00B2 while a \u221D t<sup>2/3</sup>), so the temporal term dominates at <em>every earlier</em> epoch; matter\u2013temporal equality " +
+        (cz.tEq > 1 ? "falls in the future" : "already lies in the past") + " at t = " +
+        (Number.isFinite(cz.tEq) ? cz.tEq.toFixed(2) + " t\u2080" : "\u2014") +
+        ". Structure formation needs the reverse ordering \u2014 open ruling.";
+    }
+    const zEl = document.getElementById("coZ");
+    const z = Math.pow(T0/t, 2/3) - 1;
+    if (zEl) zEl.innerHTML = (Math.abs(z) < 0.005 ? 0 : z).toFixed(2) +
+      " \u00B7 \u03C1&#775;/\u03C1 = " + (-3/t).toExponential(1) + " /s";
+  }
+};
+co.cosmo = function(s2){
+  /* Friedmann, today: H0 = sqrt(8 pi G/3 (rho_m0 + s*rho_Lambda0)), with rho_m0
+     from Planck's Omega_m (MEASURED) and rho_Lambda0 = alpha_3/t0^3 the
+     framework's own calibration. No normalization and no interpolation, so the
+     answer is free to disagree with both camps \u2014 and at large alpha_3 it does.
+     DERIVED alongside: rho_Lambda ~ t^-3 falls faster than matter (rho_m ~ t^-2
+     while a ~ t^(2/3)), so running the clock backwards the temporal term GROWS
+     relative to matter; equality lies in the future at t/t0 = rho_L0/rho_m0.
+     That ordering is a structural consequence of the exponent, flagged for the
+     author rather than tuned away. */
+  const G = 6.674e-11, MPC = 3.0857e19;   /* km per Mpc: H0 is quoted in km/s/Mpc */
+  /* rho_m0 is NOT "Planck's Omega_m", and the distinction decides whether this
+     whole panel is circular. Omega_m = rho_m/rho_crit(H0) depends on H0, so
+     borrowing 0.315 while predicting a different H0 would be helping yourself
+     to the answer of the camp you are contradicting. What the CMB actually
+     pins is the PHYSICAL density omega_m = Omega_m h^2 = 0.1430, which is
+     H0-independent: rho_m0 = omega_m * 3 H100^2/(8 pi G) = 2.687e-27 kg/m^3.
+     That is the number here, and it is legitimate input at any H0.
+     The consequence is a SECOND prediction, free: with rho_m0 fixed, a higher
+     H0 means a lower Omega_m, so the framework predicts Omega_m, and that is
+     measurable without the distance ladder at all (lensing, clusters, BAO). */
+  const OMEGA_MH2 = 0.1430;               /* Planck physical matter density (MEASURED) */
+  const H100 = 1e5/3.0857e22;             /* 100 km/s/Mpc in s^-1 */
+  const rhoM0 = OMEGA_MH2*3*H100*H100/(8*Math.PI*G);
+  const rhoL0 = s2*RHO0;
+  const H = Math.sqrt(Math.max(1e-40, (8*Math.PI*G/3)*(rhoM0 + rhoL0)));
+  const H0 = H*MPC;
+  const rhoCrit = 3*H*H/(8*Math.PI*G);
+  return { H0, tEq: s2 > 0 ? (rhoL0/rhoM0) : Infinity, fmix: rhoL0/(rhoM0 + rhoL0),
+           rhoM0, OmM: rhoM0/rhoCrit, OmL: rhoL0/rhoCrit, h: H0/100 };
+};
+const coW = {
+  p: 3, W_OBS: -1.03, W_ERR: 0.03,
+  ncFromW(w){ return 2*(w + 1); },
+  w(p){ return (p === undefined ? this.p : p)/2 - 1; },
+  /* THE ERA ASSUMPTION, AND WHY IT MOSTLY DOES NOT MATTER HERE.
+     w = p/2 - 1 was derived in the MATTER era, a ~ t^(2/3). That is the wrong
+     background for a component that dominates \u2014 which is exactly what dark
+     energy does today \u2014 so the obvious objection is that the mapping is
+     inapplicable to the case it is being used on. Close it: if the component
+     dominates, H^2 ~ rho ~ t^-p gives a ~ t^(2/p), hence t ~ a^(p/2) and
+     rho ~ t^-p ~ a^(-p^2/2). Matching rho ~ a^(-3(1+w)) gives
+         w = p^2/6 - 1        (self-dominated)
+     against
+         w = p/2 - 1          (matter era).
+     The two agree iff p^2/6 = p/2, i.e. p(p - 3) = 0 \u2014 at p = 0 and p = 3 and
+     NOWHERE else. Both of the framework's candidate readings are therefore
+     era-independent: the cosmological-constant case and the age-cubed case both
+     give the same w whichever background you assume. The verdict w = +1/2 for
+     p = 3 survives the objection exactly. FORCED-BY-MECHANICS. */
+  wSelf(p){ const q = (p === undefined ? this.p : p); return q*q/6 - 1; },
+  eraFree(p){ const q = (p === undefined ? this.p : p); return Math.abs(q*(q - 3)) < 1e-9; },
+  sig(w){ return Math.abs(w - this.W_OBS)/this.W_ERR; },
+  accel(p){ return this.w(p) < -1/3 - 1e-12; },
+  /* a 0.01-step slider cannot land on 4/3 exactly, so the boundary gets its own
+     verdict rather than flickering between the two sides of it */
+  atThreshold(p){ return Math.abs(this.w(p) + 1/3) < 6e-3; },
+  upd(){
+    const w = this.w();
+    const wEl = document.getElementById("coW"), vEl = document.getElementById("coWV");
+    if (wEl) wEl.textContent = (w >= 0 ? "+" : "") + w.toFixed(3);
+    if (vEl) vEl.innerHTML = this.atThreshold()
+      ? "<span style='color:var(--ivory-dim)'>at the threshold w = \u2212\u2153</span>"
+      : this.accel()
+      ? "<span style='color:var(--cyan)'>accelerates</span>"
+      : "<span style='color:var(--amber)'>decelerates \u2014 not dark energy</span>";
+    const nEl = document.getElementById("coWNote");
+    if (nEl) nEl.innerHTML =
+      "\u03C1 \u221D a<sup>\u2212" + (3*this.p/2).toFixed(2) + "</sup> \u00B7 w = p/2 \u2212 1 = " +
+      (w >= 0 ? "+" : "") + w.toFixed(3) +
+      " \u00B7 threshold w = \u2212\u2153 exactly at p = 4/3 = 1.333\u2026 \u00B7 \u039B needs w = \u22121, which this formula gives only at p = 0 \u00B7 radiation w = +\u2153 (p = 8/3)" +
+      (Math.abs(this.p - 3) < 1e-9 ? " <span style='color:var(--amber)'>\u2014 the framework's p = 3 sits here, stiffer than radiation</span>" : "");
+    const cEl = document.getElementById("coNCOut");
+    if (cEl){
+      const ncHat = this.ncFromW(this.W_OBS), ncErr = 2*this.W_ERR;
+      const near = Math.abs(this.p - Math.round(this.p)) < 0.005 ? Math.round(this.p) : null;
+      cEl.innerHTML =
+        "V<sub>T</sub> = t\u2081t\u2082t\u2083 \u221D t<sup>n\u1D9C</sup> \u21D2 \u03C1<sub>\u039B</sub> \u221D t<sup>\u2212n\u1D9C</sup>, so p <em>is</em> the count \u00B7 " +
+        (near !== null ? "n\u1D9C = " + near + " \u2192 w = " + (near/2 - 1).toFixed(2) : "between counts (p = " + this.p.toFixed(2) + ")") +
+        "<br>inverted, the sky reports the count: n\u1D9C = 2(w+1) = <b>" + ncHat.toFixed(2) + " \u00B1 " + ncErr.toFixed(2) +
+        "</b> from w = " + this.W_OBS + " \u00B1 " + this.W_ERR +
+        " <span style='color:var(--cyan)'>\u2014 the only count within reach</span>" +
+        "<br><b>era check</b> \u00B7 w = p/2 \u2212 1 assumes the MATTER era, a \u221D t<sup>2/3</sup> \u2014 the wrong background " +
+        "for a component that dominates. Self-dominated instead: H\u00B2 \u221D t<sup>\u2212p</sup> \u21D2 a \u221D t<sup>2/p</sup> " +
+        "\u21D2 w = p\u00B2/6 \u2212 1. The two agree <i>iff</i> p(p\u22123) = 0 \u2014 at <b>p = 0 and p = 3 only</b>, so both of the " +
+        "framework's readings happen to be era-independent and the p = 3 verdict survives the objection exactly." +
+        "<br>" + [0,1,2,3].map(n => {
+          const wm = this.w(n), ws = this.wSelf(n);
+          const sm = this.sig(wm), ss = this.sig(ws);
+          const col = Math.max(sm, ss) < 3 ? "var(--cyan)" : "var(--amber)";
+          return "<span style='color:" + col + "'>n\u1D9C=" + n + "</span> w " +
+            (Math.abs(wm - ws) < 1e-9
+              ? wm.toFixed(3) + " (both) " + sm.toFixed(1) + "\u03C3"
+              : wm.toFixed(3) + "/" + ws.toFixed(3) + " \u2192 " + sm.toFixed(1) + "\u03C3/" + ss.toFixed(1) + "\u03C3");
+        }).join(" \u00B7 ") +
+        "<br>n\u1D9C = 0 is the only count surviving either mapping (1.0\u03C3). And because w is measured " +
+        "<i>below</i> \u22121, p\u00B2/6 \u2212 1 = w has no real solution at all \u2014 6(w+1) = " +
+        (6*(this.W_OBS + 1)).toFixed(3) + " &lt; 0 \u2014 so under the self-dominated reading the central value sits " +
+        "outside the temporal-volume family entirely, not merely at its edge." +
+        /* THREE INDEPENDENT ROUTES TO THE SAME COUNT.
+           n_c is not only a cosmological parameter. V_T = t1 t2 t3 is the same
+           temporal volume Module VIII normalises the state with and Module V
+           gears its potential by, so anything that pins V_T pins n_c. Two more
+           routes exist and neither uses a supernova. */
+        "<br><br><b>the count, reached three ways</b>" +
+        "<br>1 \u00B7 <span style='color:var(--cyan)'>cosmology</span> \u2014 w = " + this.W_OBS + " \u00B1 " + this.W_ERR +
+        " gives n\u1D9C = 2(w+1) = <b>" + ncHat.toFixed(2) + " \u00B1 " + ncErr.toFixed(2) + "</b>, consistent with 0 and nothing else." +
+        "<br>2 \u00B7 <span style='color:var(--cyan)'>a constant \u03B1</span> \u2014 Module VIII builds the fine-structure coupling " +
+        "on t\u2083 (\u201Cas t\u2083 \u2192 0 it reduces to 1/137\u201D). If n\u1D9C \u2265 1 then some t\u1D62 tracks cosmic age, changing at " +
+        "1/t\u2080 = 7.2\u00D710\u207B\u00B9\u00B9 yr\u207B\u00B9, and \u03B1 drifts at S/t\u2080 with S = d ln \u03B1/d ln t\u1D62. Clocks measure " +
+        "\u03B1\u0307/\u03B1 = (1.0 \u00B1 1.1)\u00D710\u207B\u00B9\u2078 yr\u207B\u00B9 (Lange 2021), so |S| &lt; " + AK.fmtE(AK.sBound(), 1) +
+        " at 2\u03C3 \u2014 not a coupling that could be what sets \u03B1. The only lines that can witness the drift are the proper-time " +
+        "part of the atom (panel below). <b>n\u1D9C = 0 required</b>, with no cosmology used." +
+        "<br>3 \u00B7 <span style='color:var(--cyan)'>the framework's own normalisation</span> \u2014 Module VIII flags eq (5) " +
+        "as making |\u03A8|\u00B2 constant, so eq (6) diverges, and the framework's stated cure is " +
+        "A = (t\u2081t\u2082t\u2083)<sup>\u2212\u00BD</sup>. That cure only works if V<sub>T</sub> is a <i>constant</i>: a scaling " +
+        "volume makes A time-dependent and the state non-stationary. <b>n\u1D9C = 0 required</b>, with no observation at all." +
+        "<br><span style='color:var(--cyan)'>Three routes \u2014 one cosmological, one atomic, one purely internal \u2014 and they " +
+        "agree. n\u1D9C = 0 is the framework's own answer, and it is the one the sky reports.</span>" +
+        "<br><span style='opacity:.8'>What it costs, stated plainly: n\u1D9C = 0 means \u03C1<sub>\u039B</sub> = \u03B1\u2083/V<sub>T</sub> " +
+        "with V<sub>T</sub> fixed, i.e. a constant density \u2014 a cosmological constant. The t<sup>\u22123</sup> reading is gone, " +
+        "and with it the ordering problem, the deceleration, and the structure-formation tension. The gain is that the " +
+        "temporal volume stops being a dial and becomes what the normalisation always needed it to be.</span>";
+    }
+  }
+};
+{
+  /* NOT "coP" \u2014 that id already belongs to the P_\u039B stat tile above, so
+     getElementById handed this slider a <div>, every read came back undefined
+     and p went NaN with nothing thrown. Silent, and only a duplicate-id sweep
+     finds it. */
+  const pEl = document.getElementById("coEx"), pOut = document.getElementById("coExOut");
+  const syncNC = () => [0,1,2,3].forEach(k =>
+    document.getElementById("coNC" + k).setAttribute("aria-pressed", String(Math.abs(coW.p - k) < 0.005)));
+  const sync = () => {
+    const v = +pEl.value;
+    coW.p = Number.isFinite(v) ? v : 3;
+    pOut.value = coW.p.toFixed(2);
+    coW.upd();
+    syncNC();
+  };
+  const setP = (v) => { pEl.value = String(v); sync(); };
+  pEl.addEventListener("input", sync);
+  document.getElementById("coP3").addEventListener("click", () => setP(3));
+  document.getElementById("coPA").addEventListener("click", () => setP((4/3).toFixed(2)));
+  [0,1,2,3].forEach(k => document.getElementById("coNC" + k).addEventListener("click", () => setP(k)));
+  sync();
+}
+animate(document.getElementById("coWCanvas"), (ctx, w, h) => {
+  ctx.clearRect(0, 0, w, h);
+  const narrow = w < 760;
+  const gap = 18, padB = 26, padT = 22;
+  const pw = narrow ? w - 28 : (w - 28 - gap)/2;
+  const ph = narrow ? (h - padT - padB - gap)/2 : h - padT - padB;
+  const boxes = narrow
+    ? [[14, padT, pw, ph], [14, padT + ph + gap, pw, ph]]
+    : [[14, padT, pw, ph], [14 + pw + gap, padT, pw, ph]];
+  ctx.font = "9px 'Space Grotesk', sans-serif";
+  /* ---- A: w against p ---- */
+  {
+    const [bx, by, bw, bh] = boxes[0];
+    ctx.fillStyle = "rgba(237,232,220,.45)";
+    ctx.fillText("E Q U A T I O N   O F   S T A T E   \u00B7   w = p/2 \u2212 1", bx, by - 7);
+    ctx.strokeStyle = "rgba(237,232,220,.12)"; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
+    const p0 = 0, p1 = 4, w0 = -1.2, w1 = 1.2;
+    const gx = p => bx + (p - p0)/(p1 - p0)*bw;
+    const gy = v => by + bh - (v - w0)/(w1 - w0)*bh;
+    /* the accelerating band */
+    ctx.fillStyle = "rgba(89,214,201,.09)";
+    ctx.fillRect(bx, gy(-1/3), bw, by + bh - gy(-1/3));
+    ctx.fillStyle = "rgba(89,214,201,.6)"; ctx.font = "8.5px 'IBM Plex Mono', monospace";
+    ctx.fillText("w < \u2212\u2153 \u00B7 accelerating", bx + 6, gy(-1/3) + 12);
+    ctx.strokeStyle = "rgba(237,232,220,.25)"; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(bx, gy(-1/3)); ctx.lineTo(bx + bw, gy(-1/3)); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(bx, gy(0)); ctx.lineTo(bx + bw, gy(0)); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.strokeStyle = "rgba(122,162,247,.9)"; ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(gx(p0), gy(coW.w(p0))); ctx.lineTo(gx(p1), gy(coW.w(p1))); ctx.stroke();
+    /* markers */
+    [[4/3, "rgba(89,214,201,.9)", "4/3"], [3, "rgba(245,168,60,.9)", "framework 3"]].forEach(([pv, col, lab]) => {
+      ctx.strokeStyle = col; ctx.setLineDash([2,3]); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(gx(pv), by + 2); ctx.lineTo(gx(pv), by + bh - 2); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = col; ctx.font = "8.5px 'IBM Plex Mono', monospace";
+      ctx.fillText(lab, gx(pv) - 12, by + bh - 5);
+    });
+    /* the integer counts \u2014 the only values the volume reading actually allows */
+    [0,1,2,3].forEach(k => {
+      ctx.fillStyle = k === 0 ? "rgba(89,214,201,.95)" : "rgba(237,232,220,.45)";
+      ctx.beginPath(); ctx.arc(gx(k), gy(coW.w(k)), 2.6, 0, 7); ctx.fill();
+      ctx.font = "8px 'IBM Plex Mono', monospace";
+      ctx.fillText("n\u1D9C=" + k, gx(k) - 9, gy(coW.w(k)) - 7);
+    });
+    ctx.fillStyle = "rgba(237,232,220,.95)";
+    ctx.beginPath(); ctx.arc(gx(coW.p), gy(coW.w()), 4, 0, 7); ctx.fill();
+    ctx.fillStyle = "rgba(237,232,220,.4)"; ctx.font = "8.5px 'IBM Plex Mono', monospace";
+    ctx.fillText("p \u2192", bx + bw - 24, by + bh + 12);
+    ctx.fillText("w = 0", bx + 4, gy(0) - 3);
+  }
+  /* ---- B: the densities, and where they cross ---- */
+  {
+    const [bx, by, bw, bh] = boxes[1];
+    ctx.font = "9px 'Space Grotesk', sans-serif"; ctx.fillStyle = "rgba(237,232,220,.45)";
+    ctx.fillText("D E N S I T I E S   v s   S C A L E   F A C T O R   \u00B7   l o g \u2013 l o g", bx, by - 7);
+    ctx.strokeStyle = "rgba(237,232,220,.12)"; ctx.lineWidth = 1; ctx.strokeRect(bx, by, bw, bh);
+    const la0 = -2, la1 = 1;                       /* log10 a */
+    const gx = la => bx + (la - la0)/(la1 - la0)*bw;
+    /* live from the alpha_3 slider, so this panel and the H0 panel above cannot
+       disagree about how much temporal density there is today */
+    const sA = co.el && co.el.a ? (+co.el.a.value || 0) : 1;
+    const ratio0 = Math.max(1e-6, sA*RHO0/co.cosmo(sA).rhoM0);
+    const qL = 3*coW.p/2;
+    const val = (la, q, r0) => Math.log10(r0) - q*la;
+    let lo = 1e9, hi = -1e9;
+    for (let i = 0; i <= 40; i++){
+      const la = la0 + (la1 - la0)*i/40;
+      [val(la, 3, 1), val(la, qL, ratio0)].forEach(v => { if (v < lo) lo = v; if (v > hi) hi = v; });
+    }
+    const gy = v => by + bh - (v - lo)/Math.max(1e-9, hi - lo)*bh;
+    [[3, 1, "rgba(237,232,220,.8)", "\u03C1_m \u221D a\u207B\u00B3"],
+     [qL, ratio0, "rgba(232,110,204,.9)", "\u03C1_\u039B \u221D a^\u2212" + qL.toFixed(2)]].forEach(([q, r0, col, lab]) => {
+      ctx.strokeStyle = col; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(gx(la0), gy(val(la0, q, r0))); ctx.lineTo(gx(la1), gy(val(la1, q, r0)));
+      ctx.stroke();
+      ctx.fillStyle = col; ctx.font = "8.5px 'IBM Plex Mono', monospace";
+      ctx.fillText(lab, bx + 6, by + 12 + (q === 3 ? 0 : 12));
+    });
+    /* crossing: log10(ratio0) - qL*la = -3*la  =>  la = log10(ratio0)/(qL - 3) */
+    const dq = qL - 3;
+    ctx.strokeStyle = "rgba(237,232,220,.3)"; ctx.setLineDash([2,3]);
+    ctx.beginPath(); ctx.moveTo(gx(0), by + 2); ctx.lineTo(gx(0), by + bh - 2); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = "rgba(237,232,220,.45)"; ctx.font = "8.5px 'IBM Plex Mono', monospace";
+    ctx.fillText("today", gx(0) - 12, by + bh + 12);
+    if (Math.abs(dq) > 1e-6 && ratio0 > 1e-6){
+      const laX = Math.log10(ratio0)/dq;
+      if (laX > la0 && laX < la1){
+        ctx.fillStyle = "rgba(150,255,170,.95)";
+        ctx.beginPath(); ctx.arc(gx(laX), gy(-3*laX), 4, 0, 7); ctx.fill();
+        ctx.fillText("equality at a = " + Math.pow(10, laX).toFixed(2) + (laX > 0 ? " (future)" : " (past)"), gx(laX) - 40, gy(-3*laX) - 8);
+      }
+    }
+    ctx.fillStyle = "rgba(237,232,220,.4)";
+    ctx.fillText("a \u2192", bx + bw - 22, by + bh + 12);
+  }
+});
+co.el.t.addEventListener("input", () => co.upd());
+co.el.a.addEventListener("input", () => co.upd());
+co.upd();
+const CV = {
+  el: { r: document.getElementById("cvR"), rOut: document.getElementById("cvROut"),
+        d: document.getElementById("cvD"), dOut: document.getElementById("cvDOut"),
+        t: document.getElementById("cvT"), rank: document.getElementById("cvRank") },
+  dTown(Rm, dl){
+    const cz = co.cosmo(+co.el.a.value), f = Math.pow(cz.OmM, 0.55), rH = 299792.458/cz.H0;
+    return -2 * dl * cz.OmM * (1 - f) * Math.pow(Rm/rH, 3) * 0.5 * 2.7255e6;   /* uK; Om = 1 (s = 0) gives f = 1 and no ISW, as it should */
+  },
+  dT(Rm, dl){
+    const OL = 0.45 + 0.35*(+co.el.a.value);          /* slider -> OmegaLambda */
+    const Om = Math.max(0.05, 1 - OL);
+    const f = Math.pow(Om, 0.55);                     /* linear growth rate */
+    const rH = 4440;                                  /* Mpc: c / H0 */
+    return -2 * dl * Om * (1 - f) * Math.pow(Rm/rH, 3) * 0.5 * 2.7255e6;  /* uK */
+  },
+  upd(){
+    const Rm = +this.el.r.value, dl = +this.el.d.value;
+    this.el.rOut.value = Rm + " Mpc";
+    this.el.dOut.value = dl.toFixed(2);
+    const dT = this.dT(Rm, dl);
+    this.el.t.textContent = dT.toFixed(1) + " \u00B5K";
+    const cz = co.cosmo(+co.el.a.value);
+    document.getElementById("cvOm").textContent = cz.OmM.toFixed(3);
+    document.getElementById("cvH").textContent = cz.H0.toFixed(1);
+    document.getElementById("cvT2").textContent = this.dTown(Rm, dl).toFixed(1) + " \u00B5K";
+    const known = [["Eridanus", -20], ["Draco", -11], ["Bo\u00F6tes", -9], ["Local (KBC)", -4], ["Corona B.", -14]];
+    const deeper = known.filter(k => dT < k[1]).length;
+    this.el.rank.textContent = deeper === known.length
+      ? "colder than every known spot \u2014 a prediction"
+      : "rank " + (known.length - deeper + 1) + " of 6 vs known spots";
+  }
+};
+[CV.el.r, CV.el.d].forEach(el => el.addEventListener("input", () => CV.upd()));
+co.el.a.addEventListener("input", () => CV.upd());
+CV.upd();
+animate(document.getElementById("cosmoCanvas"), (ctx, w, h, t) => {
+  ctx.clearRect(0, 0, w, h);
+  const padL = 66, padR = 24, padT = 28, padB = 96;
+  const iw = w - padL - padR, ih = h - padT - padB;
+  const xmin = 15.5, xmax = 18;
+  const s = +co.el.a.value || 1e-9;
+  const LT0 = Math.log10(T0);
+  function lrho(lt){ return Math.log10(s*RHO0) + 3*(LT0 - lt); }
+  const ymin = lrho(xmax) - 0.5, ymax = lrho(xmin) + 0.5;
+  function X(lt){ return padL + iw*(lt - xmin)/(xmax - xmin); }
+  function Y(lr){ return padT + ih*(1 - (lr - ymin)/(ymax - ymin)); }
+  ctx.font = "10px 'IBM Plex Mono', monospace";
+  for (let e = Math.ceil(ymin); e <= ymax; e += 2){
+    const y = Y(e);
+    ctx.strokeStyle = "rgba(89,214,201,.08)";
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w - padR, y); ctx.stroke();
+    ctx.fillStyle = "rgba(237,232,220,.35)"; ctx.fillText("1e" + e, 10, y + 3);
+  }
+  /* rho curve */
+  ctx.strokeStyle = AMBER; ctx.lineWidth = 2;
+  ctx.shadowColor = "rgba(245,168,60,.4)"; ctx.shadowBlur = 6;
+  ctx.beginPath();
+  for (let px = 0; px <= iw; px += 3){
+    const lt = xmin + (xmax - xmin)*px/iw;
+    const y = Y(lrho(lt));
+    px === 0 ? ctx.moveTo(padL + px, y) : ctx.lineTo(padL + px, y);
+  }
+  ctx.stroke(); ctx.shadowBlur = 0;
+  /* pressure curve (scaled into view) */
+  ctx.save(); ctx.beginPath(); ctx.rect(padL, padT, iw, ih); ctx.clip();
+  ctx.strokeStyle = "rgba(89,214,201,.6)"; ctx.lineWidth = 1.2; ctx.setLineDash([4,4]);
+  ctx.beginPath();
+  for (let px = 0; px <= iw; px += 3){
+    const lt = xmin + (xmax - xmin)*px/iw;
+    const y = Y(lrho(lt) + Math.log10(3) - lt + 16.9);
+    px === 0 ? ctx.moveTo(padL + px, y) : ctx.lineTo(padL + px, y);
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+  ctx.restore();
+  /* now marker */
+  const xNow = X(Math.log10(T0));
+  ctx.strokeStyle = "rgba(237,232,220,.28)"; ctx.setLineDash([2,4]);
+  ctx.beginPath(); ctx.moveTo(xNow, padT); ctx.lineTo(xNow, h - padB); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(237,232,220,.5)"; ctx.textAlign = "center";
+  ctx.fillText("t\u2080 now", xNow, padT - 8);
+  /* slider marker */
+  const lt = +co.el.t.value;
+  const mx = X(lt), my = Y(lrho(lt));
+  ctx.fillStyle = AMBER;
+  ctx.beginPath(); ctx.arc(mx, my, 5, 0, 7); ctx.fill();
+  ctx.strokeStyle = "rgba(7,11,20,1)"; ctx.lineWidth = 2; ctx.stroke();
+  ctx.textAlign = "left";
+  ctx.fillStyle = "rgba(237,232,220,.45)";
+  ctx.fillText("\u03C1_\u039B = \u03B1\u2083/t\u00B3 (amber) \u00B7 P_\u039B (dashed, shifted +16.9 dex into view)", padL + 8, padT + 14);
+  ctx.textAlign = "center"; ctx.fillStyle = "rgba(237,232,220,.35)";
+  ctx.fillText("log\u2081\u2080 t (s)", padL + iw/2, h - padB + 26);
+  /* ---- H0 tension gauge lane ---- */
+  const gy = h - 44, gx0 = padL, gx1 = w - padR;
+  const Hmin = 65.5, Hmax = 75.5;
+  function GX(H0){ return gx0 + (gx1 - gx0)*(H0 - Hmin)/(Hmax - Hmin); }
+  const gr = ctx.createLinearGradient(gx0, 0, gx1, 0);
+  gr.addColorStop(0, "rgba(89,214,201,.5)"); gr.addColorStop(1, "rgba(245,168,60,.5)");
+  ctx.strokeStyle = gr; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(gx0, gy); ctx.lineTo(gx1, gy); ctx.stroke();
+  /* uncertainty bands */
+  function band(H0, err, col){
+    ctx.fillStyle = col;
+    ctx.fillRect(GX(H0 - err), gy - 5, GX(H0 + err) - GX(H0 - err), 10);
+  }
+  band(67.4, 0.5, "rgba(89,214,201,.22)");
+  band(73.4, 1.1, "rgba(245,168,60,.22)");
+  function tick(H0, col, lab, above){
+    const x = GX(H0);
+    ctx.strokeStyle = col; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x, gy - 9); ctx.lineTo(x, gy + 9); ctx.stroke();
+    ctx.fillStyle = col; ctx.font = "10px 'IBM Plex Mono', monospace"; ctx.textAlign = "center";
+    ctx.fillText(lab, x, above ? gy - 15 : gy + 24);
+  }
+  tick(67.4, CYAN, "Planck 67.4", true);
+  tick(73.4, AMBER, "SH0ES 73.4", true);
+  const s2 = +co.el.a.value;
+  /* the same Friedmann H0 the tile shows; this dot used to sit on the old 67.4 + 2.9s lerp,
+     so the gauge read 70.3 under a tile reading 73.1 */
+  const H0d = co.cosmo(s2).H0;
+  const x = GX(Math.max(Hmin + 0.2, Math.min(Hmax - 0.2, H0d)));
+  ctx.fillStyle = IVORY;
+  ctx.shadowColor = IVORY; ctx.shadowBlur = 10;
+  ctx.beginPath(); ctx.arc(x, gy, 5.5, 0, 7); ctx.fill();
+  ctx.shadowBlur = 0;
+  ctx.font = "10px 'IBM Plex Mono', monospace";
+  ctx.fillText("dynamic " + H0d.toFixed(1), x, gy + 24);
+  ctx.textAlign = "left";
+});
+const VOIDS = [
+  {name:"Great Cold Spot", r:150, d:-0.3, z:0.2, dT:-150, t3:"1.58e-2"},
+  {name:"Bo\u00F6tes Void", r:330, d:-0.4, z:0.05, dT:-120, t3:"2.35e-3"},
+  {name:"Eridanus Supervoid", r:1800, d:-0.5, z:0.2, dT:-180, t3:"3.91e-3"},
+  {name:"SDSS Median", r:100, d:-0.2, z:0.5, dT:-5, t3:"2.95e-3"},
+  {name:"DES Largest", r:400, d:-0.4, z:0.8, dT:-30, t3:"3.23e-3"}
+];
+let voidIdx = 0, voidBlend = 0;
+const voEl = {
+  T: document.getElementById("voT"), R: document.getElementById("voR"),
+  D: document.getElementById("voD"), Z: document.getElementById("voZ"), T3: document.getElementById("voT3")
+};
+function setVoid(i){
+  if (!VOIDS[i]) return;          /* an out-of-range ov= in a shared link used to blank the canvas */
+  voidIdx = i; voidBlend = 0;
+  const v = VOIDS[i];
+  voEl.T.textContent = v.dT + " \u00B5K";
+  voEl.R.textContent = v.r + " Mpc";
+  voEl.D.textContent = v.d;
+  voEl.Z.textContent = v.z;
+  voEl.T3.textContent = v.t3;
+  /* scoped by data-void: the bare '#cosmos .chip' selector also caught every chip
+     added to the section later, and a click on one of those called setVoid(5+)
+     on an undefined void */
+  document.querySelectorAll('#cosmos .chip[data-void]').forEach(c => c.setAttribute("aria-pressed", String(+c.dataset.void === i)));
+}
+document.querySelectorAll('#cosmos .chip[data-void]').forEach(c => c.addEventListener("click", () => setVoid(+c.dataset.void)));
+setVoid(0);
+function vnoise(x, y){
+  return Math.sin(x*1.7 + Math.sin(y*2.3)) * Math.cos(y*1.3 - Math.sin(x*1.1))
+       + 0.5*Math.sin(x*3.7 + y*2.9) + 0.35*Math.cos(x*6.1 - y*5.3);
+}
+animate(document.getElementById("voidCanvas"), (ctx, w, h, t) => {
+  ctx.clearRect(0, 0, w, h);
+  voidBlend = Math.min(1, voidBlend + (reduced ? 1 : 0.04));
+  const v = VOIDS[voidIdx];
+  const depth = Math.min(1, Math.abs(v.dT)/180) * voidBlend;
+  const spotR = (0.16 + 0.24*Math.min(1, v.r/800)) * Math.min(w, h);
+  const cx = w*0.56, cy = h*0.5;
+  const cell = 7;
+  for (let y = 0; y < h; y += cell){
+    for (let x = 0; x < w; x += cell){
+      let val = vnoise(x*0.012, y*0.012) * 0.5 + 0.5;   /* 0..1 */
+      const d = Math.hypot(x - cx, y - cy);
+      if (d < spotR) val -= depth * (1 - d/spotR) * 1.3;
+      const m = Math.min(1, Math.max(0, val));
+      ctx.fillStyle = duo(m, 0.5 + 0.3*m);
+      ctx.fillRect(x, y, cell - 1, cell - 1);
+    }
+  }
+  ctx.strokeStyle = "rgba(237,232,220,.3)"; ctx.setLineDash([3,5]);
+  ctx.beginPath(); ctx.arc(cx, cy, spotR, 0, 7); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = "rgba(7,11,20,.55)";
+  ctx.fillRect(10, h - 30, 172, 20);
+  ctx.fillStyle = "rgba(237,232,220,.75)"; ctx.font = "10.5px 'IBM Plex Mono', monospace";
+  ctx.fillText(v.name + " \u00B7 " + v.dT + " \u00B5K", 16, h - 16);
+});
+function makeRunner(btn, input, from, to, ms, onFrame, labels){
+  let raf = null, t0 = 0, f0 = from;
+  function stop(){
+    if (raf) cancelAnimationFrame(raf); raf = null;
+    btn.innerHTML = labels[0]; btn.classList.remove("live"); btn.setAttribute("aria-pressed","false");
+  }
+  function frame(now){
+    const p = Math.min(1, (now - t0) / ms);
+    input.value = f0 + (to - f0)*p;
+    onFrame();
+    if (p < 1) raf = requestAnimationFrame(frame); else stop();
+  }
+  btn.addEventListener("click", () => {
+    if (raf){ stop(); return; }
+    f0 = (from === null) ? +input.value : from;      /* null = start from current */
+    btn.innerHTML = labels[1]; btn.classList.add("live"); btn.setAttribute("aria-pressed","true");
+    t0 = performance.now();
+    raf = requestAnimationFrame(frame);
+  });
+  input.addEventListener("pointerdown", stop);
+  return stop;
+}
+makeRunner(document.getElementById("coRun"), document.getElementById("coTR"), 15.5, 18, 11000,
+  () => co.upd(), ["\u25B6&nbsp;Run expansion", "\u25A0 Expanding\u2026"]);
+function texNum(v, sig){
+  if (!isFinite(v)) return "\\infty";
+  const a = Math.abs(v);
+  if (a !== 0 && (a >= 1e4 || a < 1e-3)){
+    const e = Math.floor(Math.log10(a));
+    return (v/Math.pow(10, e)).toFixed(2) + "{\\times}10^{" + e + "}";
+  }
+  return (+v.toPrecision(sig || 4)).toString();
+}
+const LIVE = [];
+function liveEq(tag, fn){
+  const panel = document.querySelector('.eq-panel[data-tag="' + tag + '"]');
+  if (!panel) return;
+  const d = document.createElement("div");
+  d.className = "eq-live eq-scroll";
+  panel.appendChild(d);
+  LIVE.push({d, fn});
+}
+let liveTimer = null;
+function liveNow(){
+  LIVE.forEach(item => {
+    /* re-render only when the line changed: an unchanged KaTeX rebuild every heartbeat
+       snapped a sideways-scrolled row back to its start */
+    try { const tex = item.fn(); if (tex !== item.tex){ renderTex(item.d, tex); item.tex = tex; } item.d.dataset.err = ""; }
+    catch(e){ if (item.d.dataset.err !== "1"){ item.d.dataset.err = "1"; item.d.textContent = "\u2026"; item.tex = null; } }
+  });
+}
+function refreshLive(){
+  clearTimeout(liveTimer);
+  liveTimer = setTimeout(liveNow, 70);
+}
+setInterval(liveNow, 1200);
+liveEq("Temporal dark energy", () => {
+  const tC = Math.pow(10, +co.el.t.value), s = +co.el.a.value;
+  const a3 = s*RHO0*Math.pow(T0, 3), rho = a3/Math.pow(tC, 3);
+  return String.raw`\rho_\Lambda = \frac{${texNum(a3)}}{(${texNum(tC)}\,\mathrm{s})^{3}} = ${texNum(rho)}\ \mathrm{kg/m^3},\qquad P_\Lambda = \frac{3\,(${texNum(a3)})}{(${texNum(tC)}\,\mathrm{s})^{4}} = ${texNum(3*rho/tC)}\ \mathrm{kg/m^3/s},\qquad H_0 = \sqrt{\tfrac{8\pi G}{3}\big(\rho_{m0}+\rho_\Lambda(t_0)\big)} = ${co.cosmo(s).H0.toFixed(1)}\ \mathrm{km/s/Mpc}`;
+});
+document.addEventListener("input", refreshLive, {passive:true});
+document.addEventListener("click", e => {
+  if (e.target.closest(".seg, .chip, .dim-item, .m3-cell, .scale-cell, .btn")) refreshLive();
+}, {passive:true});
+refreshLive();
+
+})();
+</script>
+</body>
+</html>
