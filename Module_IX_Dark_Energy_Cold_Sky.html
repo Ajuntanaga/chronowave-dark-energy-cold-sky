@@ -442,7 +442,7 @@ kbd{font-family:var(--mono);font-size:10px;color:var(--cyan);border:1px solid va
         <canvas class="viz" id="cosmoCanvas" height="430" aria-label="Log-log chart of dark energy density decaying with cosmic time, with a Hubble tension gauge"></canvas>
         <div class="controls">
           <div class="ctrl" style="flex:2 1 280px">
-            <label for="coTR">Cosmic time (log&#8321;&#8320; s) <output id="coTROut">17.64</output></label>
+            <label for="coTR">Cosmic time (log&#8321;&#8320; s) <output id="coTROut">17.639</output></label>
             <input type="range" id="coTR" min="15.5" max="18" step="0.001" value="17.639">
           </div>
           <div class="ctrl">
@@ -464,7 +464,7 @@ kbd{font-family:var(--mono);font-size:10px;color:var(--cyan);border:1px solid va
       <div class="panel">
         <div class="panel-head">
           <span>ISW void probe &middot; <span class="sym">&Delta;T &prop; &alpha;&#8323;(t<sub>i</sub><sup>&minus;3</sup> &minus; t<sub>f</sub><sup>&minus;3</sup>)</span></span>
-          <span class="readout">observed &Delta;T = <b id="voT">-150 &micro;K</b></span>
+          <span class="readout">paper&rsquo;s &Delta;T = <b id="voT">-150 &micro;K</b></span>
         </div>
         <canvas class="viz" id="voidCanvas" height="298" aria-label="Simulated CMB patch showing the selected cold spot"></canvas>
         <div class="controls" style="padding-top:12px;padding-bottom:0">
@@ -487,7 +487,7 @@ kbd{font-family:var(--mono);font-size:10px;color:var(--cyan);border:1px solid va
           </div>
           <div class="ctrl narrow" style="flex:1 1 100%">
             <span class="readout">predicted ISW: <b id="cvT">&minus;19.8 &micro;K</b> &middot; <b id="cvRank"></b>
-              <br><span style="opacity:.7">cosmology for that figure: &Omega;<sub>&Lambda;</sub> = 0.45 + 0.35&thinsp;s and r<sub>H</sub> = 4440 Mpc, a hand-set mapping (ASSUMED).
+              <br><span style="opacity:.7">cosmology for that figure: &Omega;<sub>&Lambda;</sub> = 0.45 + 0.35&thinsp;s, &Omega;<sub>m</sub> = 1 &minus; &Omega;<sub>&Lambda;</sub> floored at 0.05 (so the figure stops changing above s&nbsp;&asymp;&nbsp;1.43), and r<sub>H</sub> = 4440 Mpc, a hand-set mapping (ASSUMED).
               With this module's own &Omega;<sub>m</sub> = <span id="cvOm">&mdash;</span> and H<sub>0</sub> = <span id="cvH">&mdash;</span> km/s/Mpc: <b id="cvT2">&mdash;</b></span></span>
           </div>
         </div>
@@ -590,7 +590,7 @@ kbd{font-family:var(--mono);font-size:10px;color:var(--cyan);border:1px solid va
       <div style="color:var(--ivory);letter-spacing:.3em;text-transform:uppercase;margin-bottom:10px">Chronowave <span style="color:var(--amber)">Dynamics</span></div>
       <div>Framework &amp; papers &middot; Anthony M. Vargas &amp; Aethus Iqbal-Samir &middot; 2024&ndash;2026</div>
     </div>
-    <div class="disc">Module IX &middot; Dark energy &amp; the cold sky, extracted standalone from the full Temporal Engine compendium on 2026-11-14. A speculative theoretical framework, presented as proposed in the source papers and prototypes.</div>
+    <div class="disc">Module IX &middot; Dark energy &amp; the cold sky, extracted standalone from the full Temporal Engine compendium on 2026-11-15. A speculative theoretical framework, presented as proposed in the source papers and prototypes.</div>
   </div>
 </footer>
 
@@ -916,7 +916,7 @@ const co = {
   upd(){
     const t = Math.pow(10, +this.el.t.value), s = +this.el.a.value;
     const rho = s*RHO0*Math.pow(T0/t,3), P = 3*rho/t;
-    this.el.tOut.value = (+this.el.t.value).toFixed(2);
+    this.el.tOut.value = (+this.el.t.value).toFixed(3);
     this.el.aOut.value = s.toFixed(2) + "\u00D7";
     this.el.T.textContent = t.toExponential(2) + " s";
     this.el.rho.innerHTML = rho.toExponential(2) + " kg/m\u00B3";
@@ -1325,15 +1325,20 @@ animate(document.getElementById("cosmoCanvas"), (ctx, w, h, t) => {
   ctx.beginPath(); ctx.arc(x, gy, 5.5, 0, 7); ctx.fill();
   ctx.shadowBlur = 0;
   ctx.font = "10px 'IBM Plex Mono', monospace";
-  ctx.fillText("dynamic " + H0d.toFixed(1), x, gy + 24);
+  /* the gauge spans 65.5-75.5; the Friedmann H0 runs from 37.8 to 106 over the slider, so a dot beyond
+     the ends is parked there with an arrow, and the label is kept inside the canvas instead of being
+     centred on the parked dot (it used to run off the right edge: "dynamic 106.") */
+  const hLab = (H0d < Hmin ? "\u25C2 " : "") + "dynamic " + H0d.toFixed(1) + (H0d > Hmax ? " \u25B8" : "");
+  const hW = ctx.measureText(hLab).width;
   ctx.textAlign = "left";
+  ctx.fillText(hLab, Math.max(gx0 - 6, Math.min(gx1 + 6 - hW, x - hW/2)), gy + 24);
 });
 const VOIDS = [
   {name:"Great Cold Spot", r:150, d:-0.3, z:0.2, dT:-150, t3:"1.58e-2"},
   {name:"Bo\u00F6tes Void", r:330, d:-0.4, z:0.05, dT:-120, t3:"2.35e-3"},
   {name:"Eridanus Supervoid", r:1800, d:-0.5, z:0.2, dT:-180, t3:"3.91e-3"},
-  {name:"SDSS Median", r:100, d:-0.2, z:0.5, dT:-5, t3:"2.95e-3"},
-  {name:"DES Largest", r:400, d:-0.4, z:0.8, dT:-30, t3:"3.23e-3"}
+  {name:"SDSS Median", r:100, d:-0.2, z:0.5, dT:-5, t3:"n/a"},   /* 2.95e-3 and 3.23e-3 are the paper's t^3 terms for DESI Void 1 (z 0.1) and Euclid Void 2 (z 0.15), not for these two voids */
+  {name:"DES Largest", r:400, d:-0.4, z:0.8, dT:-30, t3:"n/a"}
 ];
 let voidIdx = 0, voidBlend = 0;
 const voEl = {
